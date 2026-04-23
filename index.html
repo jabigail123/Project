@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Italy | Timeless Beauty, Art & Cuisine</title>
-  <!-- Google Fonts & simple reset -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Italy | Eternal Aesthetic</title>
+  <!-- Google Fonts: Elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,371 +16,459 @@
     }
 
     body {
-      background-color: #fef7e8;  /* warm antique paper */
+      background: #f6f3ea;  /* warm neutral base */
       font-family: 'Inter', sans-serif;
-      color: #2c2418;
-      line-height: 1.4;
+      color: #2c2b28;
+      scroll-behavior: smooth;
     }
 
-    .page {
-      max-width: 1400px;
-      margin: 0 auto;
-      background: #fffcf5;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    /* sage green + earthy neutral palette */
+    :root {
+      --sage: #9caf88;
+      --deep-sage: #7e8f6c;
+      --clay: #d9c7a7;
+      --stone: #e4dfd3;
+      --charcoal: #2e2c2a;
+      --cream: #fef9ef;
+      --olive: #7b8a5c;
     }
 
-    /* hero header */
-    .hero {
-      background: linear-gradient(105deg, #1f3b2c 0%, #2a5f44 100%);
-      color: white;
-      padding: 3rem 2rem 2rem 2rem;
-      text-align: center;
-      border-bottom: 8px solid #dbb879;
+    /* navigation bar + hamburger */
+    .navbar {
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(156, 175, 136, 0.3);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
     }
 
-    .hero h1 {
+    .logo h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4.2rem;
+      font-weight: 500;
+      font-size: 1.9rem;
       letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5c6e4a, #3d4a30);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    /* hamburger menu */
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #4a5b3a;
+      transition: 0.2s;
+    }
+
+    .menu-icon:hover {
+      color: #2a3b1f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3c4932;
+      letter-spacing: 0.3px;
+      padding: 0.5rem 0;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      font-size: 1rem;
+    }
+
+    .nav-links li a:hover {
+      border-bottom-color: var(--sage);
+      color: #2c3b1f;
+    }
+
+    /* hero section with ITALY word and soft transparent bg image */
+    .hero {
+      min-height: 65vh;
+      background: linear-gradient(112deg, rgba(220, 210, 190, 0.3), rgba(245, 240, 225, 0.5)), url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid #e2dacf;
+    }
+
+    .hero-text {
+      background: rgba(250, 247, 240, 0.6);
+      backdrop-filter: blur(3px);
+      padding: 2rem 3rem;
+      border-radius: 42px;
+      display: inline-block;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+    }
+
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 7rem;
       font-weight: 600;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      letter-spacing: 12px;
+      color: #2f4022;
+      text-shadow: 2px 2px 12px rgba(240, 230, 210, 0.8);
+      margin-bottom: 0.5rem;
     }
 
-    .hero .tagline {
-      font-size: 1.2rem;
-      margin-top: 0.75rem;
-      font-weight: 400;
-      opacity: 0.9;
+    .hero-text p {
       font-style: italic;
+      color: #3b4b2c;
+      font-weight: 500;
+      font-size: 1.2rem;
     }
 
-    /* main container */
+    /* container & cards aesthetic */
     .container {
-      padding: 2.2rem 2rem;
-    }
-
-    /* about section */
-    .about-card {
-      background: #ffffffdd;
-      backdrop-filter: blur(2px);
-      border-radius: 32px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
-      border: 1px solid #f0e2cf;
+      max-width: 1280px;
+      margin: 4rem auto;
+      padding: 0 2rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      border-left: 6px solid #c49a6c;
-      padding-left: 1rem;
-      margin-bottom: 1.2rem;
-      color: #2e3b2c;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--sage);
+      padding-left: 1.2rem;
+      color: #3b4a2e;
     }
 
     .about-text {
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: #2c2418;
-      margin-bottom: 0.5rem;
-    }
-
-    /* 3 city columns (Rome, Venice, Tuscany) */
-    .cities-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
+      background: #fefaf2;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
       margin-bottom: 3rem;
+      line-height: 1.6;
+      font-size: 1.08rem;
+      color: #2c2b28;
+      border: 1px solid #ece3d5;
     }
 
-    .city-card {
-      flex: 1;
-      min-width: 240px;
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 1.5rem;
-      box-shadow: 0 12px 22px -8px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s;
-      border: 1px solid #f3e7da;
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
     }
 
-    .city-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.12);
+    .card {
+      background: #fffdf9;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #ebe2d0;
     }
 
-    .city-name {
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 32px -16px rgba(86, 97, 66, 0.2);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card-content {
+      padding: 1.5rem 1.5rem 1.8rem;
+    }
+
+    .card-content h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #a5562c;
-      border-bottom: 2px dashed #e7cfb5;
-      display: inline-block;
-      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
+      color: #4e6240;
     }
 
-    .city-desc {
-      font-size: 0.95rem;
+    .card-content p {
       line-height: 1.5;
-      color: #3f3529;
+      font-size: 0.95rem;
+      color: #3f3e3a;
     }
 
-    /* FOOD SECTION */
+    /* food section row */
     .food-section {
-      background: #fef4e6;
+      background: #f3efe6;
       border-radius: 40px;
-      padding: 1.6rem 2rem;
-      margin: 2.2rem 0 2.8rem 0;
-      border: 1px solid #ebdbc8;
+      padding: 2rem 2rem 2.5rem;
+      margin: 2rem 0 3rem;
     }
 
-    .food-grid {
+    .food-list {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: space-between;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .food-item {
       background: white;
-      border-radius: 32px;
-      padding: 1rem 1.8rem;
       flex: 1;
-      min-width: 160px;
+      min-width: 180px;
+      border-radius: 28px;
+      padding: 1.3rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.02);
+      border: 1px solid #ddd0b6;
       transition: all 0.2s;
-      border: 1px solid #fae5cf;
+    }
+
+    .food-item i {
+      font-size: 2.2rem;
+      color: var(--deep-sage);
+      margin-bottom: 0.6rem;
     }
 
     .food-item h4 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #bf6f3c;
-      margin-bottom: 0.5rem;
-      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #4f6142;
+      margin-bottom: 0.4rem;
     }
 
     .food-item p {
-      font-size: 0.9rem;
-      color: #5e4b34;
+      font-size: 0.85rem;
+      color: #5f5b54;
     }
 
-    /* IMAGES GALLERY — based on the 6 described pictures */
-    .gallery-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
-      margin: 1rem 0 1.2rem 0;
-      font-weight: 600;
-      color: #2e3b2c;
-      border-left: 6px solid #c49a6c;
-      padding-left: 1rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.8rem;
-      margin-bottom: 2rem;
-    }
-
-    .image-card {
-      background: #fefaf4;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-      border: 1px solid #eedfcb;
-    }
-
-    .image-card:hover {
-      transform: scale(1.01);
-    }
-
-    .img-placeholder {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      background: linear-gradient(125deg, #e9ddcf, #dacdbd);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      color: #7d6850;
-      font-weight: 500;
+    footer {
+      background: #dfd9ca;
+      padding: 2rem;
       text-align: center;
-      padding: 1rem;
-      background-image: radial-gradient(circle at 10% 20%, rgba(255,245,225,0.6) 2%, transparent 2.5%);
-      background-size: 20px 20px;
-      position: relative;
-      font-family: monospace;
+      font-size: 0.85rem;
+      color: #4d4b44;
+      border-top: 1px solid #ccc3ae;
+      margin-top: 2rem;
     }
 
-    /* actual images represented with beautiful svg/emoji + description */
-    .img-placeholder .preview-icon {
-      font-size: 3.8rem;
-      opacity: 0.7;
-      margin-right: 0.5rem;
-    }
-
-    .img-caption {
-      padding: 1rem 1rem 1.2rem 1rem;
-      background: white;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #3a2c1e;
-      border-top: 1px solid #f2e2d0;
-      text-align: center;
-    }
-
-    .img-caption strong {
-      color: #b45f2b;
-      font-weight: 600;
-    }
-
-    /* Footer */
-    .footer-note {
-      background: #2c3a29;
-      color: #f7efdf;
-      text-align: center;
-      padding: 1.4rem;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      border-radius: 32px 32px 0 0;
-      font-family: 'Inter', monospace;
-      letter-spacing: 0.5px;
-    }
-
-    hr {
-      margin: 1rem 0;
-      border: 0;
-      height: 1px;
-      background: linear-gradient(90deg, #e9d8c4, transparent);
-    }
-
-    @media (max-width: 720px) {
+    /* responsive + hamburger menu */
+    @media (max-width: 800px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: rgba(252, 248, 238, 0.98);
+        backdrop-filter: blur(16px);
+        width: 70%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 6px 0 18px rgba(0,0,0,0.05);
+        border-right: 1px solid #cdc1a8;
+        z-index: 99;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hero-text h2 {
+        font-size: 3.8rem;
+        letter-spacing: 8px;
+      }
+      .hero-text {
+        padding: 1rem 1.8rem;
+      }
       .container {
-        padding: 1rem;
+        padding: 0 1.2rem;
       }
-      .hero h1 {
-        font-size: 2.7rem;
-      }
-      .section-title {
-        font-size: 1.6rem;
-      }
+    }
+
+    /* additional earthy touches */
+    hr {
+      margin: 1.5rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #e1d5be, #b9ab8a, #e1d5be);
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6b705c;
+      margin: 1rem 0 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-<div class="page">
+
+<nav class="navbar">
+  <div class="logo">
+    <h1>✨ dolce vita</h1>
+  </div>
+  <div class="menu-icon" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#gallery">Wander</a></li>
+  </ul>
+</nav>
+
+<!-- HERO with ITALY word prominent -->
+<section id="home">
   <div class="hero">
-    <h1>🇮🇹 Italy</h1>
-    <div class="tagline">Dove regna la bellezza · Where beauty reigns</div>
+    <div class="hero-text">
+      <h2>ITALY</h2>
+      <p>dove la bellezza non ha fine</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- ABOUT section -->
+  <section id="about">
+    <div class="section-title">La storia · L’anima</div>
+    <div class="about-text">
+      <p>Italy is a country in southern Europe, known for its rich history, cultural and historical landscapes. Its capital city, Rome, was once the center of the powerful Roman Empire. Italy is famous for its art and architecture, with great artists like Leonardo da Vinci and Michelangelo. It's also well known for its delicious food, such as pizza and pasta, as well as traditional Italian desserts. From the sun-kissed coasts of Amalfi to the alpine dolomites, every corner whispers timeless stories.</p>
+      <div class="quote">— “A country that feels like a poem written in olive groves and ancient stones.”</div>
+    </div>
+  </section>
+
+  <!-- DESTINATIONS cards: Rome, Venice, Tuscany with aesthetic real-life images (unsplash/pexels style high quality, sage/neutral blend) -->
+  <section id="destinations">
+    <div class="section-title">✨ Iconic Destinations</div>
+    <div class="cards-grid">
+      <!-- Rome Card -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rome Colosseum golden hour" loading="lazy">
+        <div class="card-content">
+          <h3>Rome · L'Eterna</h3>
+          <p>Rome is a city with ancient grandeur. The Colosseum, Vatican City, and Pantheon stand as majestic witnesses to millennia. Cobbled piazzas, hidden trattorias, and baroque fountains create an unforgettable symphony of history.</p>
+        </div>
+      </div>
+      <!-- Venice Card -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/2704479/pexels-photo-2704479.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Venice Grand Canal gondola" loading="lazy">
+        <div class="card-content">
+          <h3>Venice · La Serenissima</h3>
+          <p>Built on water instead of roads, Venice moves by boat through dreamy canals. St. Mark's Basilica, Doge's Palace, and Rialto Bridge enchant every visitor. The lagoon’s islands glitter like sea gems.</p>
+        </div>
+      </div>
+      <!-- Tuscany Card -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/3273367/pexels-photo-3273367.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tuscany rolling hills cypress trees" loading="lazy">
+        <div class="card-content">
+          <h3>Tuscany · Dolci Colline</h3>
+          <p>Famous for countryside, vineyards, olive oil and wine. The Leaning Tower of Pisa leans with grace, while medieval hill towns like San Gimignano seem frozen in time. Harvest season turns the landscape into gold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra visual: a taste of italian landscape (transparent soft vignette) -->
+  <div style="border-radius: 36px; overflow: hidden; margin: 1rem 0 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+    <img src="https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Italian countryside aesthetic" style="width:100%; max-height: 300px; object-fit: cover; opacity: 0.88; display: block;">
   </div>
 
-  <div class="container">
-    <!-- About section: faithful to original text -->
-    <div class="about-card">
-      <div class="section-title">About</div>
-      <p class="about-text">Italy is a country in southern Europe, known for its rich history, cultural and historical landscapes. Its capital city, Rome, was once the center of the powerful Roman Empire. Italy is famous for its art and architecture, with great artists like Leonardo da Vinci and Michelangelo. It's also well known for its delicious food, such as pizza and pasta, as well as traditional Italian desserts.</p>
-    </div>
-
-    <!-- Rome, Venice, Tuscany sections -->
-    <div class="cities-grid">
-      <div class="city-card">
-        <div class="city-name">🏛️ Rome</div>
-        <div class="city-desc">Rome is a city with a lot of ancient history. The Colosseum is one of its most famous landmarks, along with numerous Roman ruins and the Pantheon. It is a major cultural and historical center, gods and goddesses in the Pantheon, Basilica di San Pietro, Piazza Navona, St. Peter's Square, Trevi Fountain, Vatican Museums, Sistine Chapel, and other sites of interest.</div>
-      </div>
-      <div class="city-card">
-        <div class="city-name">🛶 Venice</div>
-        <div class="city-desc">Venice is built on water instead of roads. People move around by boats through canals, including the Grand Canal. It has many historic buildings like St. Mark's Basilica, Doge's Palace, and the Rialto Bridge. These places were important in Venice's past when it was a powerful trading city.</div>
-      </div>
-      <div class="city-card">
-        <div class="city-name">🌿 Tuscany</div>
-        <div class="city-desc">Tuscany is famous for its countryside, historic cities, and role in Italian art and culture, especially during the Renaissance. One of its most well-known landmarks is the Leaning Tower of Pisa, which is famous worldwide because it leans due to unstable ground and has become one of Italy's most recognized symbols.</div>
-      </div>
-    </div>
-
-    <!-- Food Section (based on original text: Magreda Pizza, Lozza, Bolognese) -->
+  <!-- FOOD section with corrected traditional descriptions -->
+  <section id="food">
+    <div class="section-title">🍝 Sapori Italiani · Traditional Flavors</div>
     <div class="food-section">
-      <div class="section-title" style="border-left-color: #c98f5a;">🍝 Signature Italian Flavours</div>
-      <div class="food-grid">
+      <div class="food-list">
         <div class="food-item">
-          <h4>🍕 Magreda Pizza</h4>
-          <p>A classic Neapolitan pizza, crafted with San Marzano tomatoes, creamy mozzarella, and fresh basil — a true slice of Napoli.</p>
-        </div>
-        <div class="food-item">
-          <h4>🍲 Lozza</h4>
-          <p>A hearty baked dish made with layers of meat, vegetables, and cheese, slow-cooked to perfection. Comfort from the Italian countryside.</p>
+          <i class="fas fa-pizza-slice"></i>
+          <h4>Margherita Pizza</h4>
+          <p>A classic pizza with tomato sauce, mozzarella cheese, and fresh basil — colors of the Italian flag.</p>
         </div>
         <div class="food-item">
-          <h4>🍝 Bolognese</h4>
-          <p>A rich tomato-based sauce, slowly simmered with tender minced meat and aromatic herbs — the soul of traditional pasta dishes.</p>
+          <i class="fas fa-utensils"></i>
+          <h4>Lasagna</h4>
+          <p>A hearty baked dish layered with rich ragù, creamy béchamel, and Parmesan — pure comfort.</p>
+        </div>
+        <div class="food-item">
+          <i class="fas fa-drumstick-bite"></i>
+          <h4>Bolognese</h4>
+          <p>A slow-cooked, meat-based sauce served over fresh tagliatelle or pappardelle — deeply savory.</p>
         </div>
       </div>
-      <hr />
-      <p style="font-size: 0.85rem; text-align: center; margin-top: 0.8rem; color: #8b694c;">✨ Authentic recipes passed down through generations ✨</p>
+      <hr>
+      <div style="text-align: center; font-size: 0.9rem; margin-top: 0.8rem; color:#5f6b4b;"><i class="fas fa-wine-bottle"></i> Pair with a glass of Chianti & explore the sweetness of Tiramisu or Panna Cotta.</div>
     </div>
+  </section>
 
-    <!-- GALLERY: exactly the 6 described pictures as in the text -->
-    <div class="gallery-title">📸 La Dolce Vita in Pictures</div>
-    <div class="gallery-grid">
-      <!-- 1. Top Left: Amalfi Coast coastline -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🏖️🌊</span> <span>Amalfi Coast vista</span>
-        </div>
-        <div class="img-caption"><strong>Top Left:</strong> A picturesque view of the Italian coastline with the Amalfi Coast visible — dramatic cliffs, turquoise sea, and pastel villages.</div>
+  <!-- micro gallery: aesthetic real-life images (sage & earthy) - triple column minimal -->
+  <section id="gallery">
+    <div class="section-title">📸 Sguardi d’Italia</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; margin-bottom: 2rem;">
+      <div style="border-radius: 28px; overflow: hidden; background: #f5efe3;">
+        <img src="https://images.pexels.com/photos/2614816/pexels-photo-2614816.jpeg?auto=compress&cs=tinysrgb&w=800" alt="amalfi coast lemon trees" style="width:100%; height: 210px; object-fit: cover; transition: 0.2s;">
+        <div style="padding: 0.8rem 1rem; font-size: 0.8rem; font-weight: 500; color:#4f6340;">🍋 Amalfi · Eternal glow</div>
       </div>
-      <!-- 2. Top Right: Statue woman holding child (guardian figure) -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🗿👩‍👧</span> <span>Maternal guardian statue</span>
-        </div>
-        <div class="img-caption"><strong>Top Right:</strong> A statue of a woman holding a child, possibly representing a family or a guardian figure, embodying Italian devotion and artistry.</div>
+      <div style="border-radius: 28px; overflow: hidden; background: #f5efe3;">
+        <img src="https://images.pexels.com/photos/922052/pexels-photo-922052.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Florence duomo sunset" style="width:100%; height: 210px; object-fit: cover;">
+        <div style="padding: 0.8rem 1rem; font-size: 0.8rem; font-weight: 500; color:#4f6340;">🏛️ Florence · Renaissance soul</div>
       </div>
-      <!-- 3. Middle Left: Panoramic Rome with Colosseum -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🏛️🏟️</span> <span>Rome skyline & Colosseum</span>
-        </div>
-        <div class="img-caption"><strong>Middle Left:</strong> A panoramic view of Rome with the Colosseum prominently featured — the eternal city’s enduring glory.</div>
-      </div>
-      <!-- 4. Middle Right: Traditional Italian pizza with toppings -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🍕🧀🌿</span> <span>Margherita pizza</span>
-        </div>
-        <div class="img-caption"><strong>Middle Right:</strong> A close-up of a traditional Italian pizza with various toppings — melted mozzarella, cherry tomatoes, and basil leaves.</div>
-      </div>
-      <!-- 5. Bottom Left: Street scene Venice gondolas colorful buildings -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🛶🏘️🌊</span> <span>Venice canal & gondolas</span>
-        </div>
-        <div class="img-caption"><strong>Bottom Left:</strong> A street scene in Venice with gondolas and colorful buildings, where romantic waterways replace car traffic.</div>
-      </div>
-      <!-- 6. Bottom Right: plate of spaghetti with tomato sauce and grated cheese -->
-      <div class="image-card">
-        <div class="img-placeholder">
-          <span class="preview-icon">🍝🧀🍅</span> <span>Spaghetti al pomodoro</span>
-        </div>
-        <div class="img-caption"><strong>Bottom Right:</strong> A plate of spaghetti with tomato sauce and grated cheese — simple, yet the essence of Italian comfort food.</div>
+      <div style="border-radius: 28px; overflow: hidden; background: #f5efe3;">
+        <img src="https://images.pexels.com/photos/2411669/pexels-photo-2411669.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dolomites mountain lake" style="width:100%; height: 210px; object-fit: cover;">
+        <div style="padding: 0.8rem 1rem; font-size: 0.8rem; font-weight: 500; color:#4f6340;">🏔️ Dolomites · alpine poetry</div>
       </div>
     </div>
-
-    <!-- Bonus hint: original footer mentions 'Food' but we already have food section, so we embed an elegant closure -->
-    <div style="background: #fff0e2; border-radius: 38px; padding: 1.2rem 2rem; margin: 1rem 0 0.5rem 0; text-align: center; border: 1px solid #eedfcb;">
-      <span style="font-weight: 500; font-family: 'Playfair Display';">🍷 Gusto & Tradizione · From north to south, every bite tells a story</span>
-    </div>
-  </div>
-
-  <div class="footer-note">
-    🇮🇹 Italy — where history whispers through ancient stones and every meal is a masterpiece.  
-    <span style="display: inline-block; margin-left: 8px;">🍝🍷🍕</span>
+  </section>
+  
+  <!-- small note: history honor -->
+  <div style="background: #eae3d4; border-radius: 30px; padding: 1.5rem; text-align: center; margin: 1rem 0;">
+    <i class="fas fa-landmark" style="color:#6b7f54; margin-right: 0.5rem;"></i> Rome, Florence, Venice, Tuscany — every region reveals Italy’s magnificent masterpiece.
   </div>
 </div>
+
+<footer>
+  <p>© 2025 Italia per Sempre — Inspired by rustic beauty, olive groves, and timeless art.</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> Sage & Earthy vibes | Authentic Italian spirit</p>
+</footer>
+
+<!-- JavaScript for hamburger menu toggle -->
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // close menu when clicking on a link (better UX)
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
 </body>
 </html>
