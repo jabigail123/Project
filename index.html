@@ -6,6 +6,7 @@
   <title>Italy | Sage & Earthly Aesthetic</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -32,6 +33,7 @@
       --warm-sand: #e8e0d0;
     }
 
+    /* navigation */
     .navbar {
       background: rgba(255, 250, 240, 0.94);
       backdrop-filter: blur(14px);
@@ -92,12 +94,12 @@
       color: #2c3b1f;
     }
 
-    /* HERO with WORKING background image */
+    /* HERO with REAL background image - FIXED! */
     .hero {
       min-height: 70vh;
-      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format');
+      background-image: url('https://images.pexels.com/photos/2613940/pexels-photo-2613940.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 30%;
       background-repeat: no-repeat;
       position: relative;
       display: flex;
@@ -107,6 +109,7 @@
       border-bottom: 1px solid #e2dacf;
     }
     
+    /* soft overlay for readability */
     .hero::before {
       content: '';
       position: absolute;
@@ -114,7 +117,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(235, 225, 205, 0.35);
+      background: rgba(245, 240, 225, 0.35);
       backdrop-filter: blur(2px);
     }
 
@@ -243,6 +246,7 @@
       text-align: center;
       box-shadow: 0 8px 12px rgba(0,0,0,0.02);
       border: 1px solid #ddd0b6;
+      transition: all 0.2s;
     }
 
     .food-item i {
@@ -275,6 +279,7 @@
       overflow: hidden;
       background: #f8f4ea;
       box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+      transition: 0.2s;
     }
 
     .gallery-card img {
@@ -293,21 +298,6 @@
       background: #fefcf7;
     }
 
-    .landscape-divider {
-      border-radius: 36px;
-      overflow: hidden;
-      margin: 0.5rem 0 2.2rem;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
-    }
-
-    .landscape-divider img {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      opacity: 0.88;
-      display: block;
-    }
-
     hr {
       margin: 1.5rem 0;
       border: none;
@@ -320,14 +310,6 @@
       text-align: center;
       font-size: 0.95rem;
       color: #6b705c;
-      margin: 1rem 0 0.5rem;
-    }
-
-    .italy-quote-box {
-      background: #eae3d4;
-      border-radius: 32px;
-      padding: 1.6rem;
-      text-align: center;
       margin: 1rem 0 0.5rem;
     }
 
@@ -392,13 +374,12 @@
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#ancient">Ancient Wonders</a></li>
     <li><a href="#food">Food</a></li>
     <li><a href="#gallery">Gallery</a></li>
   </ul>
 </nav>
 
-<!-- HERO with ITALY background (FIXED - working image) -->
+<!-- HERO with ITALY word + REAL BACKGROUND IMAGE (fix applied) -->
 <section id="home">
   <div class="hero">
     <div class="hero-text">
@@ -418,26 +399,29 @@
     </div>
   </section>
 
-  <!-- DESTINATIONS (Rome, Venice, Tuscany) -->
+  <!-- DESTINATIONS with REAL aesthetic pictures -->
   <section id="destinations">
-    <div class="section-title">✨ Iconic Destinations</div>
+    <div class="section-title">✨ Destinations of Wonder</div>
     <div class="cards-grid">
+      <!-- Rome -->
       <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1996&auto=format" alt="Rome Colosseum" loading="lazy">
+        <img class="card-img" src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rome Colosseum" loading="lazy">
         <div class="card-content">
           <h3>Rome · Eterna</h3>
           <p>Rome is a city with layers of ancient history. The Colosseum, Vatican City, and Pantheon stand as majestic monuments. Wander through cobblestone alleys and discover timeless art.</p>
         </div>
       </div>
+      <!-- Venice -->
       <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1886&auto=format" alt="Venice Grand Canal" loading="lazy">
+        <img class="card-img" src="https://images.pexels.com/photos/2614816/pexels-photo-2614816.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Venice Grand Canal" loading="lazy">
         <div class="card-content">
           <h3>Venice · Serenissima</h3>
           <p>Built on water instead of roads, Venice moves by boat through enchanting canals. St. Mark's Basilica, Doge's Palace, and the Rialto Bridge create an ethereal floating city.</p>
         </div>
       </div>
+      <!-- Tuscany -->
       <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2070&auto=format" alt="Tuscany countryside" loading="lazy">
+        <img class="card-img" src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tuscany countryside" loading="lazy">
         <div class="card-content">
           <h3>Tuscany · Dolci Colline</h3>
           <p>Tuscany is famous for its countryside, historic cities, olive oil and wine. The Leaning Tower of Pisa tilts with grace, while endless vineyards offer a pastoral dreamscape.</p>
@@ -446,40 +430,9 @@
     </div>
   </section>
 
-  <!-- ANCIENT WONDERS section - ONLY Colosseum, Leaning Tower of Pisa, Pantheon (ALL WORKING) -->
-  <section id="ancient">
-    <div class="section-title">🏛️ Meraviglie Antiche · Ancient Wonders</div>
-    <div class="cards-grid">
-      <!-- Colosseum -->
-      <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?q=80&w=2071&auto=format" alt="Colosseum Rome" loading="lazy">
-        <div class="card-content">
-          <h3>Colosseum · Flavian Amphitheatre</h3>
-          <p>The iconic symbol of Imperial Rome, this ancient amphitheater could hold up to 80,000 spectators. A marvel of engineering and gladiatorial history, it remains one of the New Seven Wonders of the World.</p>
-        </div>
-      </div>
-      <!-- Leaning Tower of Pisa -->
-      <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=2070&auto=format" alt="Leaning Tower of Pisa" loading="lazy">
-        <div class="card-content">
-          <h3>Leaning Tower of Pisa</h3>
-          <p>Famous worldwide for its unintended tilt due to unstable ground. This freestanding bell tower of Pisa's cathedral is a testament to medieval Italian architecture and a symbol of resilience and beauty.</p>
-        </div>
-      </div>
-      <!-- Pantheon -->
-      <div class="card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1584481296343-98b466e964c8?q=80&w=2071&auto=format" alt="Pantheon Rome" loading="lazy">
-        <div class="card-content">
-          <h3>Pantheon · Temple of all Gods</h3>
-          <p>A former Roman temple with a stunning unreinforced concrete dome and oculus. It has been continuously used for over two millennia and holds the tombs of kings and the artist Raphael.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Landscape divider -->
-  <div class="landscape-divider">
-    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format" alt="Italian vineyard hills">
+  <!-- Soft landscape divider -->
+  <div style="border-radius: 36px; overflow: hidden; margin: 0.5rem 0 2.2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.04);">
+    <img src="https://images.pexels.com/photos/2739120/pexels-photo-2739120.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Italian vineyard" style="width:100%; max-height: 280px; object-fit: cover; opacity: 0.88; display: block;">
   </div>
 
   <!-- FOOD section -->
@@ -508,38 +461,38 @@
     </div>
   </section>
 
-  <!-- GALLERY section - all 4 images working including Val d'Orcia -->
+  <!-- GALLERY section -->
   <section id="gallery">
     <div class="section-title">📸 Poesia Visiva · Visual Poetry</div>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2072&auto=format" alt="Cinque Terre" loading="lazy">
+        <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cinque Terre" loading="lazy">
         <div class="gallery-caption">🏖️ Cinque Terre · seaside pastels</div>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2070&auto=format" alt="Florence Duomo" loading="lazy">
+        <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Florence Duomo" loading="lazy">
         <div class="gallery-caption">⛪ Florence · Brunelleschi's dome</div>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2071&auto=format" alt="Lake Como" loading="lazy">
+        <img src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lake Como" loading="lazy">
         <div class="gallery-caption">🌿 Lake Como · elegance & serenity</div>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1504881546204-771dff5ee47a?q=80&w=1974&auto=format" alt="Val d'Orcia cypress" loading="lazy">
+        <img src="https://images.pexels.com/photos/1566830/pexels-photo-1566830.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Val d'Orcia" loading="lazy">
         <div class="gallery-caption">🌾 Val d'Orcia · cypress symphony</div>
       </div>
     </div>
   </section>
 
   <!-- Italy quote -->
-  <div class="italy-quote-box">
+  <div style="background: #eae3d4; border-radius: 32px; padding: 1.6rem; text-align: center; margin: 1rem 0 0.5rem;">
     <i class="fas fa-mosaic" style="color:#6b7f54; margin-right: 0.6rem;"></i> "Italy has changed. But for more than two thousand years, it has continued to be one of the most soul-stirring places on earth."
   </div>
 </div>
 
 <footer>
-  <p>© 2025 Italia · Sage & Earthly Aesthetic | Ancient wonders: Colosseum, Leaning Tower of Pisa, Pantheon</p>
-  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> real-life imagery · dolce far niente · timeless Italy</p>
+  <p>© 2025 Italia · Sage & Earthly Aesthetic | Inspired by rustic beauty, olive groves, and timeless art.</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> real-life imagery · dolce far niente</p>
 </footer>
 
 <script>
@@ -550,7 +503,8 @@
     navLinks.classList.toggle('active');
   });
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
     });
