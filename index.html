@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Italy | Sage & Earthly Aesthetic — Ancient Wonders</title>
+  <title>Italy | Sage & Earthly Aesthetic</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -23,6 +24,12 @@
     :root {
       --sage: #9caf88;
       --deep-sage: #7e8f6c;
+      --clay: #d9c7a7;
+      --stone: #e4dfd3;
+      --charcoal: #2e2c2a;
+      --cream: #fef9ef;
+      --olive: #7b8a5c;
+      --warm-sand: #e8e0d0;
     }
 
     .navbar {
@@ -37,12 +44,14 @@
       align-items: center;
       flex-wrap: wrap;
       border-bottom: 1px solid rgba(156, 175, 136, 0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
     .logo h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 500;
       font-size: 1.9rem;
+      letter-spacing: -0.3px;
       background: linear-gradient(135deg, #5c6e4a, #3d4a30);
       background-clip: text;
       -webkit-background-clip: text;
@@ -54,6 +63,11 @@
       font-size: 1.8rem;
       cursor: pointer;
       color: #4a5b3a;
+      transition: 0.2s;
+    }
+
+    .menu-icon:hover {
+      color: #2a3b1f;
     }
 
     .nav-links {
@@ -66,16 +80,19 @@
       text-decoration: none;
       font-weight: 500;
       color: #3c4932;
+      letter-spacing: 0.3px;
+      padding: 0.5rem 0;
       transition: 0.2s;
       border-bottom: 2px solid transparent;
-      padding-bottom: 0.3rem;
+      font-size: 1rem;
     }
 
     .nav-links li a:hover {
       border-bottom-color: var(--sage);
+      color: #2c3b1f;
     }
 
-    /* HERO with PERMANENT working background image */
+    /* HERO with WORKING background image */
     .hero {
       min-height: 70vh;
       background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format');
@@ -87,6 +104,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      border-bottom: 1px solid #e2dacf;
     }
     
     .hero::before {
@@ -96,7 +114,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(235, 225, 205, 0.3);
+      background: rgba(235, 225, 205, 0.35);
       backdrop-filter: blur(2px);
     }
 
@@ -107,6 +125,7 @@
       backdrop-filter: blur(6px);
       padding: 2rem 3rem;
       border-radius: 56px;
+      display: inline-block;
       box-shadow: 0 12px 28px rgba(0,0,0,0.08);
     }
 
@@ -117,6 +136,7 @@
       letter-spacing: 14px;
       color: #2f4022;
       text-shadow: 2px 2px 12px rgba(245, 240, 215, 0.9);
+      margin-bottom: 0.5rem;
     }
 
     .hero-text p {
@@ -146,8 +166,11 @@
       background: #fefaf2;
       padding: 2rem;
       border-radius: 32px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
       margin-bottom: 3rem;
       line-height: 1.65;
+      font-size: 1.05rem;
+      color: #2c2b28;
       border: 1px solid #ece3d5;
     }
 
@@ -169,12 +192,14 @@
 
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 24px 36px -16px rgba(86, 97, 66, 0.2);
     }
 
     .card-img {
       width: 100%;
-      height: 260px;
+      height: 250px;
       object-fit: cover;
+      transition: transform 0.4s ease;
     }
 
     .card-content {
@@ -183,7 +208,7 @@
 
     .card-content h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       margin-bottom: 0.75rem;
       color: #4e6240;
     }
@@ -197,7 +222,7 @@
     .food-section {
       background: #f3efe6;
       border-radius: 40px;
-      padding: 2rem;
+      padding: 2rem 2rem 2.5rem;
       margin: 2rem 0 3rem;
     }
 
@@ -216,6 +241,7 @@
       border-radius: 28px;
       padding: 1.3rem;
       text-align: center;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.02);
       border: 1px solid #ddd0b6;
     }
 
@@ -229,13 +255,19 @@
       font-weight: 600;
       font-size: 1.2rem;
       color: #4f6142;
+      margin-bottom: 0.4rem;
+    }
+
+    .food-item p {
+      font-size: 0.85rem;
+      color: #5f5b54;
     }
 
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin: 2rem 0;
+      margin: 2rem 0 2rem;
     }
 
     .gallery-card {
@@ -247,12 +279,13 @@
 
     .gallery-card img {
       width: 100%;
-      height: 220px;
+      height: 210px;
       object-fit: cover;
+      display: block;
     }
 
     .gallery-caption {
-      padding: 0.8rem;
+      padding: 0.8rem 1rem;
       font-size: 0.85rem;
       font-weight: 500;
       color: #54673f;
@@ -260,11 +293,26 @@
       background: #fefcf7;
     }
 
+    .landscape-divider {
+      border-radius: 36px;
+      overflow: hidden;
+      margin: 0.5rem 0 2.2rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+
+    .landscape-divider img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      opacity: 0.88;
+      display: block;
+    }
+
     hr {
       margin: 1.5rem 0;
       border: none;
       height: 2px;
-      background: linear-gradient(to right, #e1d5be, #b9ab8a);
+      background: linear-gradient(to right, #e1d5be, #b9ab8a, #e1d5be);
     }
 
     .quote {
@@ -272,7 +320,15 @@
       text-align: center;
       font-size: 0.95rem;
       color: #6b705c;
-      margin-top: 1rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .italy-quote-box {
+      background: #eae3d4;
+      border-radius: 32px;
+      padding: 1.6rem;
+      text-align: center;
+      margin: 1rem 0 0.5rem;
     }
 
     footer {
@@ -299,9 +355,12 @@
         height: calc(100vh - 70px);
         flex-direction: column;
         align-items: center;
+        justify-content: flex-start;
         padding-top: 3rem;
         gap: 2rem;
         transition: left 0.3s ease;
+        box-shadow: 4px 0 18px rgba(0,0,0,0.05);
+        border-right: 1px solid #cdc1a8;
         z-index: 99;
       }
       .nav-links.active {
@@ -312,7 +371,10 @@
         letter-spacing: 8px;
       }
       .hero-text {
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.8rem;
+      }
+      .container {
+        padding: 0 1.2rem;
       }
     }
   </style>
@@ -336,7 +398,7 @@
   </ul>
 </nav>
 
-<!-- HERO with WORKING Italy background image (Unsplash - permanent) -->
+<!-- HERO with ITALY background (FIXED - working image) -->
 <section id="home">
   <div class="hero">
     <div class="hero-text">
@@ -347,6 +409,7 @@
 </section>
 
 <div class="container">
+  <!-- ABOUT section -->
   <section id="about">
     <div class="section-title">🇮🇹 L'essenza · The Essence</div>
     <div class="about-text">
@@ -355,7 +418,7 @@
     </div>
   </section>
 
-  <!-- Destinations -->
+  <!-- DESTINATIONS (Rome, Venice, Tuscany) -->
   <section id="destinations">
     <div class="section-title">✨ Iconic Destinations</div>
     <div class="cards-grid">
@@ -383,10 +446,11 @@
     </div>
   </section>
 
-  <!-- ANCIENT WONDERS — Colosseum, Leaning Tower of Pisa, Pantheon (ALL IMAGES WORK) -->
+  <!-- ANCIENT WONDERS section - ONLY Colosseum, Leaning Tower of Pisa, Pantheon (ALL WORKING) -->
   <section id="ancient">
     <div class="section-title">🏛️ Meraviglie Antiche · Ancient Wonders</div>
     <div class="cards-grid">
+      <!-- Colosseum -->
       <div class="card">
         <img class="card-img" src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?q=80&w=2071&auto=format" alt="Colosseum Rome" loading="lazy">
         <div class="card-content">
@@ -394,6 +458,7 @@
           <p>The iconic symbol of Imperial Rome, this ancient amphitheater could hold up to 80,000 spectators. A marvel of engineering and gladiatorial history, it remains one of the New Seven Wonders of the World.</p>
         </div>
       </div>
+      <!-- Leaning Tower of Pisa -->
       <div class="card">
         <img class="card-img" src="https://images.unsplash.com/photo-1601814933824-fd0b574dd592?q=80&w=2070&auto=format" alt="Leaning Tower of Pisa" loading="lazy">
         <div class="card-content">
@@ -401,6 +466,7 @@
           <p>Famous worldwide for its unintended tilt due to unstable ground. This freestanding bell tower of Pisa's cathedral is a testament to medieval Italian architecture and a symbol of resilience and beauty.</p>
         </div>
       </div>
+      <!-- Pantheon -->
       <div class="card">
         <img class="card-img" src="https://images.unsplash.com/photo-1584481296343-98b466e964c8?q=80&w=2071&auto=format" alt="Pantheon Rome" loading="lazy">
         <div class="card-content">
@@ -411,12 +477,12 @@
     </div>
   </section>
 
-  <!-- landscape mood spacer -->
-  <div style="border-radius: 36px; overflow: hidden; margin: 0.5rem 0 2rem;">
-    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format" alt="Italian vineyard hills" style="width:100%; max-height: 240px; object-fit: cover; opacity: 0.9;">
+  <!-- Landscape divider -->
+  <div class="landscape-divider">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format" alt="Italian vineyard hills">
   </div>
 
-  <!-- Food -->
+  <!-- FOOD section -->
   <section id="food">
     <div class="section-title">🍷 Sapori · Traditional Flavors</div>
     <div class="food-section">
@@ -438,16 +504,16 @@
         </div>
       </div>
       <hr>
-      <div style="text-align: center; font-size: 0.9rem; color:#5f6b4b;"><i class="fas fa-grapes"></i> Pair with a glass of Chianti — and finish with Tiramisu.</div>
+      <div style="text-align: center; font-size: 0.9rem; color:#5f6b4b; margin-top: 0.5rem;"><i class="fas fa-grapes"></i> Pair with a glass of Chianti — and finish with Tiramisu.</div>
     </div>
   </section>
 
-  <!-- Gallery with all 4 images working -->
+  <!-- GALLERY section - all 4 images working including Val d'Orcia -->
   <section id="gallery">
     <div class="section-title">📸 Poesia Visiva · Visual Poetry</div>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2072&auto=format" alt="Cinque Terre coastline" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2072&auto=format" alt="Cinque Terre" loading="lazy">
         <div class="gallery-caption">🏖️ Cinque Terre · seaside pastels</div>
       </div>
       <div class="gallery-card">
@@ -459,13 +525,14 @@
         <div class="gallery-caption">🌿 Lake Como · elegance & serenity</div>
       </div>
       <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1504881546204-771dff5ee47a?q=80&w=1974&auto=format" alt="Val d'Orcia Tuscany cypress trees" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1504881546204-771dff5ee47a?q=80&w=1974&auto=format" alt="Val d'Orcia cypress" loading="lazy">
         <div class="gallery-caption">🌾 Val d'Orcia · cypress symphony</div>
       </div>
     </div>
   </section>
 
-  <div style="background: #eae3d4; border-radius: 32px; padding: 1.6rem; text-align: center;">
+  <!-- Italy quote -->
+  <div class="italy-quote-box">
     <i class="fas fa-mosaic" style="color:#6b7f54; margin-right: 0.6rem;"></i> "Italy has changed. But for more than two thousand years, it has continued to be one of the most soul-stirring places on earth."
   </div>
 </div>
