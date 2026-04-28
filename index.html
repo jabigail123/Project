@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Dolce Terra | Luxury Hotel Italy — Sage & Earthly Aesthetic</title>
-  <!-- Google Fonts -->
+  <title>Italy | Sage & Earthly Aesthetic — Ancient Wonders</title>
+  <!-- Google Fonts: elegant serif + clean sans -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,8 +30,10 @@
       --charcoal: #2e2c2a;
       --cream: #fef9ef;
       --olive: #7b8a5c;
+      --warm-sand: #e8e0d0;
     }
 
+    /* navigation */
     .navbar {
       background: rgba(255, 250, 240, 0.94);
       backdrop-filter: blur(14px);
@@ -44,17 +46,18 @@
       align-items: center;
       flex-wrap: wrap;
       border-bottom: 1px solid rgba(156, 175, 136, 0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
 
     .logo h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 500;
       font-size: 1.9rem;
+      letter-spacing: -0.3px;
       background: linear-gradient(135deg, #5c6e4a, #3d4a30);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      cursor: pointer;
     }
 
     .menu-icon {
@@ -62,61 +65,51 @@
       font-size: 1.8rem;
       cursor: pointer;
       color: #4a5b3a;
+      transition: 0.2s;
+    }
+
+    .menu-icon:hover {
+      color: #2a3b1f;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.8rem;
+      gap: 2rem;
       list-style: none;
-      flex-wrap: wrap;
     }
 
     .nav-links li a {
       text-decoration: none;
       font-weight: 500;
       color: #3c4932;
+      letter-spacing: 0.3px;
       padding: 0.5rem 0;
       transition: 0.2s;
       border-bottom: 2px solid transparent;
-      cursor: pointer;
+      font-size: 1rem;
     }
 
-    .nav-links li a:hover, .nav-links li a.active {
+    .nav-links li a:hover {
       border-bottom-color: var(--sage);
       color: #2c3b1f;
     }
 
-    /* PAGE CONTAINER */
-    .page-container {
-      min-height: calc(100vh - 140px);
-    }
-
-    .page {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .page.active-page {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* HERO SECTIONS */
+    /* HERO with FIXED background image (real aesthetic Italy) - Using Roman Forum image */
     .hero {
-      min-height: 60vh;
+      min-height: 70vh;
+      background-image: url('https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=1600');
       background-size: cover;
       background-position: center 35%;
+      background-repeat: no-repeat;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      border-bottom: 1px solid #e2dacf;
     }
-
+    
+    /* soft overlay for readability */
     .hero::before {
       content: '';
       position: absolute;
@@ -135,120 +128,199 @@
       backdrop-filter: blur(6px);
       padding: 2rem 3rem;
       border-radius: 56px;
+      display: inline-block;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
     }
 
     .hero-text h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      letter-spacing: 8px;
+      font-size: 7rem;
+      font-weight: 600;
+      letter-spacing: 14px;
       color: #2f4022;
+      text-shadow: 2px 2px 12px rgba(245, 240, 215, 0.9);
+      margin-bottom: 0.5rem;
     }
 
     .hero-text p {
       font-style: italic;
       color: #3b4b2c;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1.2rem;
     }
 
     .container {
       max-width: 1280px;
-      margin: 3rem auto;
+      margin: 4rem auto;
       padding: 0 2rem;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      margin-bottom: 1.8rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
       border-left: 6px solid var(--sage);
       padding-left: 1.2rem;
       color: #3b4a2e;
     }
 
+    .about-text {
+      background: #fefaf2;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      margin-bottom: 3rem;
+      line-height: 1.65;
+      font-size: 1.05rem;
+      color: #2c2b28;
+      border: 1px solid #ece3d5;
+    }
+
+    /* cards grid for destinations and ancient wonders */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
     }
 
     .card {
       background: #fffdf9;
-      border-radius: 28px;
+      border-radius: 32px;
       overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.06);
       border: 1px solid #ebe2d0;
-      transition: 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 36px -16px rgba(86, 97, 66, 0.2);
     }
 
     .card-img {
       width: 100%;
-      height: 220px;
+      height: 250px;
       object-fit: cover;
+      transition: transform 0.4s ease;
     }
 
     .card-content {
-      padding: 1.3rem;
+      padding: 1.5rem 1.5rem 1.8rem;
     }
 
     .card-content h3 {
       font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
       color: #4e6240;
-      margin-bottom: 0.5rem;
     }
 
-    .btn {
-      background: var(--sage);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
+    .card-content p {
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: #3f3e3a;
+    }
+
+    .food-section {
+      background: #f3efe6;
       border-radius: 40px;
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 0.8rem;
+      padding: 2rem 2rem 2.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .food-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .food-item {
+      background: white;
+      flex: 1;
+      min-width: 180px;
+      border-radius: 28px;
+      padding: 1.3rem;
+      text-align: center;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.02);
+      border: 1px solid #ddd0b6;
+    }
+
+    .food-item i {
+      font-size: 2.3rem;
+      color: var(--deep-sage);
+      margin-bottom: 0.6rem;
+    }
+
+    .food-item h4 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #4f6142;
+      margin-bottom: 0.4rem;
+    }
+
+    .food-item p {
+      font-size: 0.85rem;
+      color: #5f5b54;
+    }
+
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 2rem;
+    }
+
+    .gallery-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: #f8f4ea;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.04);
       transition: 0.2s;
     }
 
-    .btn:hover {
-      background: var(--deep-sage);
-      transform: scale(1.02);
-    }
-
-    .price {
-      font-weight: 600;
-      color: #5c6e4a;
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-    }
-
-    input, textarea, select {
+    .gallery-card img {
       width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ddd0b6;
-      border-radius: 20px;
-      background: white;
-      font-family: inherit;
+      height: 210px;
+      object-fit: cover;
+      display: block;
     }
 
-    .booking-form {
-      background: #fefaf2;
-      padding: 1.5rem;
-      border-radius: 28px;
-      margin-top: 1.5rem;
-      border: 1px solid #ece3d5;
+    .gallery-caption {
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #54673f;
+      text-align: center;
+      background: #fefcf7;
+    }
+
+    hr {
+      margin: 1.5rem 0;
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, #e1d5be, #b9ab8a, #e1d5be);
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6b705c;
+      margin: 1rem 0 0.5rem;
     }
 
     footer {
       background: #dfd9ca;
-      padding: 1.8rem;
+      padding: 2rem;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #4d4b44;
+      border-top: 1px solid #ccc3ae;
       margin-top: 2rem;
     }
 
@@ -261,20 +333,31 @@
         top: 70px;
         left: -100%;
         background: rgba(252, 248, 238, 0.98);
+        backdrop-filter: blur(16px);
         width: 70%;
         height: calc(100vh - 70px);
         flex-direction: column;
-        padding: 2rem;
-        transition: left 0.3s;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 18px rgba(0,0,0,0.05);
+        border-right: 1px solid #cdc1a8;
         z-index: 99;
-        gap: 1.2rem;
       }
       .nav-links.active {
         left: 0;
       }
       .hero-text h2 {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
+        font-size: 3.8rem;
+        letter-spacing: 8px;
+      }
+      .hero-text {
+        padding: 1rem 1.8rem;
+      }
+      .container {
+        padding: 0 1.2rem;
       }
     }
   </style>
@@ -283,163 +366,188 @@
 
 <nav class="navbar">
   <div class="logo">
-    <h1 onclick="showPage('home')">🌿 Dolce Terra</h1>
+    <h1>🌿 dolce terra</h1>
   </div>
   <div class="menu-icon" id="menuToggle">
     <i class="fas fa-bars"></i>
   </div>
   <ul class="nav-links" id="navLinks">
-    <li><a onclick="showPage('home')" id="nav-home">Home</a></li>
-    <li><a onclick="showPage('hotel')" id="nav-hotel">🏨 Hotel & Suites</a></li>
-    <li><a onclick="showPage('dining')" id="nav-dining">🍝 Authentic Dining</a></li>
-    <li><a onclick="showPage('experiences')" id="nav-experiences">✨ Experiences</a></li>
-    <li><a onclick="showPage('spa')" id="nav-spa">🌿 Spa & Wellness</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#ancient">Ancient Wonders</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#gallery">Gallery</a></li>
   </ul>
 </nav>
 
-<div class="page-container">
-  <!-- HOME PAGE -->
-  <div id="home-page" class="page active-page">
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-      <div class="hero-text">
-        <h2>DOLCE TERRA</h2>
-        <p>Italy · where the earth meets elegance</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="section-title">🇮🇹 Benvenuti a Dolce Terra</div>
-      <div class="cards-grid">
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Luxury Suites</h3><p>Overlooking Tuscan hills</p><button class="btn" onclick="showPage('hotel')">Discover Rooms →</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Authentic Cuisine</h3><p>Homemade pasta & local wine</p><button class="btn" onclick="showPage('dining')">Reserve Table →</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/68729/pexels-photo-68729.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Wellness Escape</h3><p>Olive oil massage & vineyard yoga</p><button class="btn" onclick="showPage('spa')">Book Spa →</button></div></div>
-      </div>
-      <div style="background: #eae3d4; border-radius: 28px; padding: 1.5rem; text-align: center;">
-        <i class="fas fa-hotel" style="color: #6b7f54; font-size: 2rem;"></i>
-        <p style="margin-top: 0.5rem;">Experience authentic Italian hospitality at <strong>Dolce Terra Hotel</strong> — book your stay today!</p>
-        <button class="btn" onclick="showPage('hotel')" style="margin-top: 0.8rem;">View Rooms →</button>
-      </div>
+<!-- HERO with ITALY + FIXED background image (Roman Forum ruins, same as used for Roman Forum card) -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-text">
+      <h2>ITALY</h2>
+      <p>where every stone tells a story</p>
     </div>
   </div>
+</section>
 
-  <!-- HOTEL & SUITES PAGE -->
-  <div id="hotel-page" class="page">
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/2614816/pexels-photo-2614816.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-      <div class="hero-text"><h2>🏨 Our Suites</h2><p>Elegance · Comfort · Italian Soul</p></div>
+<div class="container">
+  <!-- ABOUT section -->
+  <section id="about">
+    <div class="section-title">🇮🇹 L'essenza · The Essence</div>
+    <div class="about-text">
+      <p>Italy is a country in southern Europe, known for its rich history, cultural and historical landscapes. Its capital city, Rome, was once the center of the powerful Roman Empire. Italy is famous for its art and architecture, with great artists like Leonardo da Vinci and Michelangelo. It's also well known for its delicious food, such as pizza and pasta, as well as traditional Italian desserts. From the sun-drenched coastlines to the poetic hills of Tuscany, every region sings a different verse of beauty.</p>
+      <div class="quote">— “Italy is a dream that keeps returning for the rest of your life.”</div>
     </div>
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Classic Room</h3><p>Garden view · Breakfast included</p><div class="price">€149 / night</div><button class="btn" onclick="document.getElementById('hotel-booking').scrollIntoView({behavior:'smooth'})">Book Now</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Deluxe Suite</h3><p>Private terrace · Spa access</p><div class="price">€279 / night</div><button class="btn" onclick="document.getElementById('hotel-booking').scrollIntoView({behavior:'smooth'})">Book Suite</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Presidential Villa</h3><p>Private pool · Chef service</p><div class="price">€599 / night</div><button class="btn" onclick="document.getElementById('hotel-booking').scrollIntoView({behavior:'smooth'})">Book Villa</button></div></div>
+  </section>
+
+  <!-- DESTINATIONS (Rome, Venice, Tuscany) -->
+  <section id="destinations">
+    <div class="section-title">✨ Iconic Destinations</div>
+    <div class="cards-grid">
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rome Colosseum" loading="lazy">
+        <div class="card-content">
+          <h3>Rome · Eterna</h3>
+          <p>Rome is a city with layers of ancient history. The Colosseum, Vatican City, and Pantheon stand as majestic monuments. Wander through cobblestone alleys and discover timeless art.</p>
+        </div>
       </div>
-      <div id="hotel-booking" class="booking-form">
-        <h3 style="color: #4e6240;">📅 Reserve your stay at Dolce Terra</h3>
-        <input type="text" id="hotel-name" placeholder="Full Name">
-        <input type="email" id="hotel-email" placeholder="Email">
-        <select id="room-type">
-          <option>Classic Room - €149/night</option>
-          <option>Deluxe Suite - €279/night</option>
-          <option>Presidential Villa - €599/night</option>
-        </select>
-        <input type="date" id="checkin"><input type="date" id="checkout">
-        <button class="btn" onclick="alert('✅ Dolce Terra reservation confirmed! A confirmation will be sent. Grazie mille! 🍃')">Confirm Reservation</button>
-        <p style="font-size: 0.7rem; margin-top: 0.5rem;">*Pay at hotel · Free cancellation 48h before arrival</p>
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/2614816/pexels-photo-2614816.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Venice Grand Canal" loading="lazy">
+        <div class="card-content">
+          <h3>Venice · Serenissima</h3>
+          <p>Built on water instead of roads, Venice moves by boat through enchanting canals. St. Mark's Basilica, Doge's Palace, and the Rialto Bridge create an ethereal floating city.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tuscany countryside" loading="lazy">
+        <div class="card-content">
+          <h3>Tuscany · Dolci Colline</h3>
+          <p>Tuscany is famous for its countryside, historic cities, olive oil and wine. The Leaning Tower of Pisa tilts with grace, while endless vineyards offer a pastoral dreamscape.</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- NEW: ANCIENT WONDERS section (historical buildings: Pantheon, Colosseum, Leaning Tower of Pisa, Roman Forum) with FIXED working images -->
+  <section id="ancient">
+    <div class="section-title">🏛️ Meraviglie Antiche · Ancient Wonders</div>
+    <div class="cards-grid">
+      <!-- Colosseum (Rome) - FIXED working URL -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/3631040/pexels-photo-3631040.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Roman Colosseum exterior view" loading="lazy">
+        <div class="card-content">
+          <h3>Colosseum · Flavian Amphitheatre</h3>
+          <p>The iconic symbol of Imperial Rome, this ancient amphitheater could hold up to 80,000 spectators. A marvel of engineering and gladiatorial history, it remains one of the New Seven Wonders of the World.</p>
+        </div>
+      </div>
+      <!-- Leaning Tower of Pisa - FIXED working URL -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Leaning Tower of Pisa with blue sky" loading="lazy">
+        <div class="card-content">
+          <h3>Leaning Tower of Pisa</h3>
+          <p>Famous worldwide for its unintended tilt due to unstable ground. This freestanding bell tower of Pisa's cathedral is a testament to medieval Italian architecture and a symbol of resilience and beauty.</p>
+        </div>
+      </div>
+      <!-- Pantheon, Rome - FIXED working URL -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/235733/pexels-photo-235733.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pantheon Rome facade with columns" loading="lazy">
+        <div class="card-content">
+          <h3>Pantheon · Temple of all Gods</h3>
+          <p>A former Roman temple with a stunning unreinforced concrete dome and oculus. It has been continuously used for over two millennia and holds the tombs of kings and the artist Raphael.</p>
+        </div>
+      </div>
+      <!-- Roman Forum & Palatine Hill - image already working (same as hero) -->
+      <div class="card">
+        <img class="card-img" src="https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Roman Forum ruins with columns" loading="lazy">
+        <div class="card-content">
+          <h3>Roman Forum · Foro Romano</h3>
+          <p>Once the heart of ancient Rome's public life — temples, basilicas, and arches. Walking among these ruins evokes the grandeur of the Roman Republic and Empire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- soft landscape mood divider -->
+  <div style="border-radius: 36px; overflow: hidden; margin: 0.5rem 0 2rem; box-shadow: 0 8px 18px rgba(0,0,0,0.04);">
+    <img src="https://images.pexels.com/photos/2739120/pexels-photo-2739120.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Italian countryside hills" style="width:100%; max-height: 260px; object-fit: cover; opacity: 0.9; display: block;">
   </div>
 
-  <!-- AUTHENTIC DINING PAGE -->
-  <div id="dining-page" class="page">
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-      <div class="hero-text"><h2>🍝 La Cucina Italiana</h2><p>homemade · like Nonna used to make</p></div>
-    </div>
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card"><div class="card-content"><i class="fas fa-pizza-slice" style="font-size: 2rem; color: var(--sage);"></i><h3>Margherita Pizza</h3><p>San Marzano tomatoes, buffalo mozzarella, fresh basil — stone-baked.</p><div class="price">€14</div><button class="btn" onclick="alert('🍕 Order added! Pickup at Dolce Terra Kitchen in 20 min.')">Order Now</button></div></div>
-        <div class="card"><div class="card-content"><i class="fas fa-utensils" style="font-size: 2rem; color: var(--sage);"></i><h3>Homemade Lasagna</h3><p>Slow-cooked ragù, béchamel, Parmigiano — baked to perfection.</p><div class="price">€18</div><button class="btn" onclick="alert('🍝 Lasagna ordered! Freshly made daily.')">Order Now</button></div></div>
-        <div class="card"><div class="card-content"><i class="fas fa-drumstick-bite" style="font-size: 2rem; color: var(--sage);"></i><h3>Tagliatelle al Ragù</h3><p>Authentic Bolognese simmered 6 hours, fresh egg pasta.</p><div class="price">€16</div><button class="btn" onclick="alert('🍝 Tagliatelle ordered! A classic Italian masterpiece.')">Order Now</button></div></div>
-        <div class="card"><div class="card-content"><i class="fas fa-ice-cream" style="font-size: 2rem; color: var(--sage);"></i><h3>Tiramisu</h3><p>Espresso-soaked ladyfingers, mascarpone, cocoa — homemade.</p><div class="price">€7</div><button class="btn" onclick="alert('🍰 Tiramisu reserved! The perfect dolce vita ending.')">Order Now</button></div></div>
+  <!-- FOOD section -->
+  <section id="food">
+    <div class="section-title">🍷 Sapori · Traditional Flavors</div>
+    <div class="food-section">
+      <div class="food-list">
+        <div class="food-item">
+          <i class="fas fa-pizza-slice"></i>
+          <h4>Margherita Pizza</h4>
+          <p>Classic pizza with tomato sauce, mozzarella, fresh basil — a tricolor tribute.</p>
+        </div>
+        <div class="food-item">
+          <i class="fas fa-utensils"></i>
+          <h4>Lasagna</h4>
+          <p>Hearty baked layers of ragù, béchamel, and parmesan — pure comfort.</p>
+        </div>
+        <div class="food-item">
+          <i class="fas fa-drumstick-bite"></i>
+          <h4>Bolognese</h4>
+          <p>Rich slow-cooked meat sauce served over fresh tagliatelle, deeply savory.</p>
+        </div>
       </div>
-      <div class="booking-form">
-        <h3 style="color: #4e6240;">🥂 Reserve a Table · Authentic Italian Dinner</h3>
-        <input type="text" id="dinner-name" placeholder="Name"><input type="email" id="dinner-email" placeholder="Email">
-        <input type="date" id="dinner-date"><select id="dinner-time"><option>19:00</option><option>20:30</option><option>21:30</option></select>
-        <button class="btn" onclick="alert('🍷 Table reserved! Buon appetito from Dolce Terra kitchen! 🇮🇹')">Reserve Table</button>
-      </div>
+      <hr>
+      <div style="text-align: center; font-size: 0.9rem; color:#5f6b4b; margin-top: 0.5rem;"><i class="fas fa-grapes"></i> Pair with a glass of Chianti or Barolo — and finish with Tiramisu.</div>
     </div>
-  </div>
+  </section>
 
-  <!-- EXPERIENCES PAGE - Tours & Explorations -->
-  <div id="experiences-page" class="page">
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/1104761/pexels-photo-1104761.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-      <div class="hero-text"><h2>✨ Curated Experiences</h2><p>by Dolce Terra</p></div>
-    </div>
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/1566830/pexels-photo-1566830.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Pasta Masterclass</h3><p>Learn to make fresh tagliatelle & tortellini</p><div class="price">€89 / person</div><button class="btn" onclick="document.getElementById('exp-booking').scrollIntoView({behavior:'smooth'})">Book Class</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/68729/pexels-photo-68729.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Wine Tasting Tour</h3><p>Visit 2 family vineyards + Chianti pairing</p><div class="price">€120 / person</div><button class="btn" onclick="document.getElementById('exp-booking').scrollIntoView({behavior:'smooth'})">Book Tour</button></div></div>
-        <div class="card"><img class="card-img" src="https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg?auto=compress&cs=tinysrgb&w=800"><div class="card-content"><h3>Vespa Adventure</h3><p>Ride through Tuscan hills + lunch</p><div class="price">€150 / person</div><button class="btn" onclick="document.getElementById('exp-booking').scrollIntoView({behavior:'smooth'})">Book Ride</button></div></div>
+  <!-- GALLERY section with FIXED last image (Val d'Orcia cypress) and all images working -->
+  <section id="gallery">
+    <div class="section-title">📸 Poesia Visiva · Visual Poetry</div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cinque Terre village coastline" loading="lazy">
+        <div class="gallery-caption">🏖️ Cinque Terre · seaside pastels</div>
       </div>
-      <div id="exp-booking" class="booking-form">
-        <h3 style="color: #4e6240;">🎟️ Book your Dolce Terra Experience</h3>
-        <input type="text" id="exp-name" placeholder="Full Name"><input type="email" id="exp-email" placeholder="Email">
-        <select id="exp-select"><option>Pasta Masterclass (€89)</option><option>Wine Tasting Tour (€120)</option><option>Vespa Adventure (€150)</option></select>
-        <input type="date" id="exp-date"><input type="number" id="exp-people" placeholder="Number of people" min="1">
-        <button class="btn" onclick="alert('🎉 Experience booked! Grazie! We will send all details via email. Ready for la dolce vita! 🍷')">Confirm Experience</button>
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Florence Duomo and Brunelleschi's dome" loading="lazy">
+        <div class="gallery-caption">⛪ Florence · Brunelleschi's dome</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lake Como with garden and mountains" loading="lazy">
+        <div class="gallery-caption">🌿 Lake Como · elegance & serenity</div>
+      </div>
+      <div class="gallery-card">
+        <!-- FIXED: Val d'Orcia cypress symphony - working image URL -->
+        <img src="https://images.pexels.com/photos/1104761/pexels-photo-1104761.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Val d'Orcia Tuscany cypress trees rolling hills" loading="lazy">
+        <div class="gallery-caption">🌾 Val d'Orcia · cypress symphony</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SPA & WELLNESS PAGE -->
-  <div id="spa-page" class="page">
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-      <div class="hero-text"><h2>🌿 Wellness Escape</h2><p>Rejuvenate in the heart of Italy</p></div>
-    </div>
-    <div class="container">
-      <div class="cards-grid">
-        <div class="card"><div class="card-content"><i class="fas fa-spa" style="font-size: 2rem; color: var(--sage);"></i><h3>Olive Oil Massage</h3><p>Using organic Tuscan olive oil</p><div class="price">€85 / 60min</div><button class="btn" onclick="document.getElementById('spa-booking').scrollIntoView({behavior:'smooth'})">Book Massage</button></div></div>
-        <div class="card"><div class="card-content"><i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: var(--sage);"></i><h3>Vineyard Yoga</h3><p>Sunrise yoga among the vines</p><div class="price">€45 / person</div><button class="btn" onclick="document.getElementById('spa-booking').scrollIntoView({behavior:'smooth'})">Book Yoga</button></div></div>
-        <div class="card"><div class="card-content"><i class="fas fa-hot-tub" style="font-size: 2rem; color: var(--sage);"></i><h3>Thermal Retreat</h3><p>Natural hot springs + mud wrap</p><div class="price">€120 / full day</div><button class="btn" onclick="document.getElementById('spa-booking').scrollIntoView({behavior:'smooth'})">Book Retreat</button></div></div>
-      </div>
-      <div id="spa-booking" class="booking-form">
-        <h3 style="color: #4e6240;">🌸 Reserve your Wellness Journey</h3>
-        <input type="text" id="spa-name" placeholder="Full Name"><input type="email" id="spa-email" placeholder="Email">
-        <select id="spa-select"><option>Olive Oil Massage (€85)</option><option>Vineyard Yoga (€45)</option><option>Thermal Retreat (€120)</option></select>
-        <input type="date" id="spa-date"><textarea placeholder="Special requests / allergies"></textarea>
-        <button class="btn" onclick="alert('✨ Spa reservation confirmed! Relaxation awaits at Dolce Terra. 🌿')">Confirm Booking</button>
-      </div>
-    </div>
+  <!-- deep italian quote -->
+  <div style="background: #eae3d4; border-radius: 32px; padding: 1.6rem; text-align: center; margin: 1rem 0 0.5rem;">
+    <i class="fas fa-mosaic" style="color:#6b7f54; margin-right: 0.6rem;"></i> "Italy has changed. But for more than two thousand years, it has continued to be one of the most soul-stirring places on earth."
   </div>
 </div>
 
 <footer>
-  <p>© 2025 Dolce Terra · Italy · Sage & Earthly Aesthetic · Authentic Hospitality</p>
-  <p><i class="fas fa-leaf"></i> la dolce vita · where every stone tells a story</p>
+  <p>© 2025 Italia · Sage & Earthly Aesthetic | Ancient wonders + timeless landscapes</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> real-life imagery · dolce far niente · Leaning Tower, Pantheon, Roman Forum</p>
 </footer>
 
 <script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(page => {
-      page.classList.remove('active-page');
-    });
-    document.getElementById(`${pageId}-page`).classList.add('active-page');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('navLinks').classList.remove('active');
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.classList.remove('active');
-    });
-    const activeNav = document.getElementById(`nav-${pageId}`);
-    if(activeNav) activeNav.classList.add('active');
-  }
-
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
+
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
 
-  document.getElementById('nav-home').classList.add('active');
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
 </script>
 </body>
 </html>
