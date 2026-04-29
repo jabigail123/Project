@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dolce Terre | About · The Essence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f5f2ea; font-family: 'Inter', sans-serif; color: #2c2b28; }
+    :root { --sage: #9caf88; --deep-sage: #7e8f6c; }
+    .navbar { background: rgba(255, 250, 240, 0.96); backdrop-filter: blur(14px); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(156, 175, 136, 0.4); }
+    .logo h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.9rem; background: linear-gradient(135deg, #5c6e4a, #3d4a30); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links li a { text-decoration: none; font-weight: 500; color: #3c4932; border-bottom: 2px solid transparent; }
+    .nav-links li a:hover { border-bottom-color: var(--sage); }
+    .hero-small { min-height: 45vh; background-image: url('https://picsum.photos/id/127/1600/600'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    .hero-small::before { content: ''; position: absolute; background: rgba(0,0,0,0.2); inset: 0; }
+    .hero-text { position: relative; background: rgba(250, 247, 240, 0.75); backdrop-filter: blur(8px); padding: 1.5rem 3rem; border-radius: 48px; }
+    .hero-text h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #2f4022; }
+    .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-left: 6px solid var(--sage); padding-left: 1.2rem; margin-bottom: 2rem; color: #3b4a2e; }
+    .about-card { background: #fffdf9; border-radius: 36px; padding: 2rem; margin-bottom: 2rem; border: 1px solid #ece3d5; line-height: 1.65; }
+    .quote { font-style: italic; text-align: center; font-size: 1rem; color: #6b705c; margin-top: 1rem; }
+    .stats { display: flex; gap: 1.5rem; justify-content: space-between; flex-wrap: wrap; margin: 2rem 0; }
+    .stat { background: #f3efe6; border-radius: 28px; padding: 1.5rem; text-align: center; flex: 1; }
+    footer { background: #dfd9ca; padding: 2rem; text-align: center; margin-top: 2rem; }
+    @media (max-width: 800px) { .hero-text h2 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo"><h1>🏺 DOLCE TERRE</h1></div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="offers.html">Offers</a></li><li><a href="booking.html">Booking</a></li>
+  </ul>
+</nav>
+<div class="hero-small"><div class="hero-text"><h2>L'essenza · The Essence</h2><p>where the earth writes poetry</p></div></div>
+<div class="container">
+  <div class="section-title">🇮🇹 La Nostra Storia</div>
+  <div class="about-card"><p>Dolce Terre was born from a dream: to blend Italian countryside luxury with sustainable hospitality. Our founders envisioned a place where guests reconnect with nature, art, and authentic flavors. Located in the heart of the Amalfi Coast, we restored an ancient stone borgo into an eco-luxury retreat. Every suite, every dish and every spa treatment celebrates the land — the <em>terra</em> that gives us life.</p><div class="quote">— “A haven where the earth’s sweetness is felt in every detail.”</div></div>
+  <div class="section-title">🌱 Our Philosophy</div>
+  <div class="stats"><div class="stat"><i class="fas fa-leaf fa-2x" style="color:#7e8f6c"></i><h3>100% Organic</h3><p>Local produce & zero-waste</p></div><div class="stat"><i class="fas fa-hand-sparkles fa-2x" style="color:#7e8f6c"></i><h3>Artisan Heritage</h3><p>Handmade ceramics & linens</p></div><div class="stat"><i class="fas fa-mountain-sun fa-2x" style="color:#7e8f6c"></i><h3>Protected Bay</h3><p>Private marine reserve</p></div></div>
+  <div class="about-card"><p>Guests often say that Dolce Terre feels like stepping into a Renaissance painting — except the wine is real and the sea is warm. We invite you to experience a place where hospitality isn’t a service, it’s an embrace. From our farm-to-table kitchen to the sound of waves below your terrace, every moment is curated with love.</p></div>
+</div>
+<footer><p>© 2025 Dolce Terre · Earthly Luxury & Italian Soul</p><p><i class="fas fa-leaf"></i> timeless beauty · dolce far niente</p></footer>
+</body>
+</html>
