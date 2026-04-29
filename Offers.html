@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dolce Terre | Offers · Exclusive Stays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f5f2ea; font-family: 'Inter', sans-serif; color: #2c2b28; }
+    :root { --sage: #9caf88; --deep-sage: #7e8f6c; }
+    .navbar { background: rgba(255, 250, 240, 0.96); backdrop-filter: blur(14px); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(156, 175, 136, 0.4); }
+    .logo h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.9rem; background: linear-gradient(135deg, #5c6e4a, #3d4a30); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links li a { text-decoration: none; font-weight: 500; color: #3c4932; border-bottom: 2px solid transparent; }
+    .nav-links li a:hover { border-bottom-color: var(--sage); }
+    .hero { min-height: 45vh; background-image: url('https://picsum.photos/id/429/1600/900'); background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
+    .hero::before { content: ''; background: rgba(0,0,0,0.25); inset: 0; position: absolute; }
+    .hero-text { position: relative; background: rgba(250, 247, 240, 0.8); backdrop-filter: blur(6px); padding: 1.5rem 3rem; border-radius: 48px; text-align: center; }
+    .hero-text h2 { font-family: 'Playfair Display'; font-size: 2.8rem; color: #2f4022; }
+    .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-left: 6px solid var(--sage); padding-left: 1.2rem; margin-bottom: 2rem; color: #3b4a2e; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: #fffdf9; border-radius: 32px; padding: 1.5rem; border: 1px solid #ebe2d0; transition: 0.2s; text-align: center; }
+    .card i { font-size: 2.5rem; color: var(--deep-sage); margin-bottom: 1rem; }
+    .card h3 { font-family: 'Playfair Display'; margin-bottom: 0.7rem; color: #4e6240; }
+    .warning-note { background: #fff3e0; border-left: 6px solid #d4b87a; padding: 1rem 1.5rem; border-radius: 28px; margin: 2rem 0; font-size: 0.9rem; text-align: center; }
+    footer { background: #dfd9ca; padding: 2rem; text-align: center; margin-top: 2rem; }
+    .btn { display: inline-block; background: var(--sage); color: white; padding: 0.6rem 1.4rem; border-radius: 40px; text-decoration: none; margin-top: 0.8rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo"><h1>🏺 DOLCE TERRE</h1></div>
+  <ul class="nav-links"><li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="offers.html">Offers</a></li><li><a href="booking.html">Booking</a></li></ul>
+</nav>
+<div class="hero"><div class="hero-text"><h2>Offerte Esclusive</h2><p>luxury beyond measure</p></div></div>
+<div class="container">
+  <div class="section-title">🏨 4-Point 9-Star Experience</div>
+  <div class="cards-grid">
+    <div class="card"><i class="fas fa-crown"></i><h3>4-Point 9-Star Hotel</h3><p>Recognized with a unique 4-point 9-star rating for hyper-personalized service, private butlers, and sustainable luxury beyond traditional 5-star.</p></div>
+    <div class="card"><i class="fas fa-water-ladder"></i><h3>Thermal Infinity Pool & Spa</h3><p>Heated seawater pool, panoramic sauna, complimentary sunrise yoga on the cliffs.</p></div>
+    <div class="card"><i class="fas fa-record-vinyl"></i><h3>Exclusive Club 'Sage & Sound'</h3><p>Underground vinyl bar, rare Italian DJ sets, signature botanical cocktails.</p></div>
+    <div class="card"><i class="fas fa-utensils"></i><h3>Gastronomic Journey</h3><p>Michelin-starred chef's menu, private wine cellar, cooking classes with Nonna Elena.</p></div>
+  </div>
+  <div class="warning-note"><i class="fas fa-child"></i> <strong>Important notice:</strong> Guests under 18 years old must be accompanied by a parent or legal guardian in all common areas and club events. Our evening club (from 9 PM) admits only adults 21+. Family-friendly programming available before 8 PM.</div>
+  <div style="background: #fefaf2; border-radius: 32px; padding: 1rem; text-align: center;"><i class="fas fa-gift"></i> Complimentary breakfast, valet parking, and airport transfers for stays over 4 nights.</div>
+  <div style="text-align: center; margin: 2rem 0;"><a href="booking.html" class="btn">Claim your offer →</a></div>
+</div>
+<footer><p>© 2025 Dolce Terre · Offers & Indulgence</p></footer>
+</body>
+</html>
