@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dolce Terre | Book Your Stay · Reservation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f2ea;
+      font-family: 'Inter', sans-serif;
+      color: #2c2b28;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --sage: #9caf88;
+      --deep-sage: #7e8f6c;
+      --clay: #d9c7a7;
+      --stone: #e4dfd3;
+      --charcoal: #2e2c2a;
+      --cream: #fef9ef;
+      --olive: #7b8a5c;
+      --warm-sand: #e8e0d0;
+    }
+
+    /* navigation */
+    .navbar {
+      background: rgba(255, 250, 240, 0.96);
+      backdrop-filter: blur(14px);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(156, 175, 136, 0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.9rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #5c6e4a, #3d4a30);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3c4932;
+      letter-spacing: 0.3px;
+      padding: 0.5rem 0;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      font-size: 1rem;
+    }
+
+    .nav-links li a:hover {
+      border-bottom-color: var(--sage);
+      color: #2c3b1f;
+    }
+
+    /* hero small */
+    .hero-small {
+      min-height: 40vh;
+      background-image: url('https://picsum.photos/id/22/1600/800');
+      background-size: cover;
+      background-position: center 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid #e2dacf;
+    }
+
+    .hero-small::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(235, 225, 205, 0.4);
+      backdrop-filter: blur(3px);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      background: rgba(250, 247, 240, 0.78);
+      backdrop-filter: blur(6px);
+      padding: 1.5rem 3rem;
+      border-radius: 56px;
+      display: inline-block;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #2f4022;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-text p {
+      font-style: italic;
+      color: #3b4b2c;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1.8rem;
+      border-left: 6px solid var(--sage);
+      padding-left: 1.2rem;
+      color: #3b4a2e;
+    }
+
+    /* booking form card */
+    .booking-card {
+      background: #fffdf9;
+      border-radius: 48px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e9e0cf;
+      overflow: hidden;
+      padding: 2rem 2rem 2.5rem;
+      transition: all 0.2s;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #4a5a3a;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    label i {
+      margin-right: 6px;
+      color: var(--deep-sage);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 32px;
+      border: 1.5px solid #e2d7c4;
+      background: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 2px rgba(156, 175, 136, 0.2);
+    }
+
+    .double-width {
+      flex: 2;
+    }
+
+    .btn-book {
+      background: #7e8f6c;
+      border: none;
+      padding: 1rem 1.8rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: 'Inter', sans-serif;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+    }
+
+    .btn-book:hover {
+      background: #5c6e4a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(90, 110, 70, 0.2);
+    }
+
+    .info-note {
+      background: #f3efe6;
+      border-radius: 24px;
+      padding: 1rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #5f5b54;
+      border-left: 4px solid var(--sage);
+    }
+
+    footer {
+      background: #dfd9ca;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #4d4b44;
+      border-top: 1px solid #ccc3ae;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 750px) {
+      .hero-text h2 { font-size: 2.2rem; letter-spacing: 2px; }
+      .booking-card { padding: 1.5rem; }
+      .container { padding: 0 1.2rem; }
+      .navbar { padding: 0.8rem 1.2rem; }
+      .nav-links { gap: 1rem; }
+    }
+
+    .success-message {
+      background: #d9e6c3;
+      color: #2a4920;
+      padding: 1rem;
+      border-radius: 40px;
+      text-align: center;
+      margin-top: 1.2rem;
+      font-weight: 500;
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <h1>🏺 DOLCE TERRE</h1>
+  </div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="booking.html">Booking</a></li>
+  </ul>
+</nav>
+
+<div class="hero-small">
+  <div class="hero-text">
+    <h2>Prenota la tua fuga</h2>
+    <p>secure your dolce vita experience</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-title">
+    <i class="fas fa-calendar-check" style="margin-right: 10px; color: var(--sage);"></i> Reserve your stay
+  </div>
+
+  <div class="booking-card">
+    <form id="bookingForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> First name *</label>
+          <input type="text" id="firstName" placeholder="e.g., Sofia" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Last name *</label>
+          <input type="text" id="lastName" placeholder="e.g., Ricci" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email address *</label>
+          <input type="email" id="email" placeholder="hello@dolceterre.com" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-phone-alt"></i> Phone number *</label>
+          <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-calendar-alt"></i> Check-in date *</label>
+          <input type="date" id="checkin" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-calendar-alt"></i> Check-out date *</label>
+          <input type="date" id="checkout" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label><i class="fas fa-users"></i> Guests *</label>
+          <select id="guests" required>
+            <option value="1">1 adult</option>
+            <option value="2" selected>2 adults</option>
+            <option value="3">3 adults</option>
+            <option value="4">4 adults</option>
+            <option value="5">5 adults</option>
+            <option value="2+children">2 adults + children</option>
+          </select>
+        </div>
+        <div class="form-group double-width">
+          <label><i class="fas fa-bed"></i> Room type</label>
+          <select id="roomType">
+            <option>Cliffside Sea View Suite</option>
+            <option selected>Garden Terrace Room</option>
+            <option>Infinity Pool Access Villa</option>
+            <option>Presidential Terrace with Jacuzzi</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group double-width">
+          <label><i class="fas fa-comment-dots"></i> Special requests (optional)</label>
+          <textarea rows="2" id="requests" placeholder="Dietary preferences, celebrations, extra pillows..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-book" id="bookNowBtn">
+        <i class="fas fa-check-circle"></i> Book your stay
+      </button>
+      
+      <div id="successMessage" class="success-message">
+        <i class="fas fa-spa"></i> ✨ Grazie! Your reservation request has been received. A Dolce Terre concierge will contact you within 24 hours. ✨
+      </div>
+      
+      <div class="info-note">
+        <i class="fas fa-lock"></i> Your information is safe with us. This is a demo reservation — no real charge will be applied. After clicking, you'll see a confirmation message.
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Dolce Terre · Earthly Luxury & Italian Soul</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> timeless beauty · dolce far niente · Book your dream escape</p>
+</footer>
+
+<script>
+  // DOM fully interactive booking simulation
+  const form = document.getElementById('bookingForm');
+  const successDiv = document.getElementById('successMessage');
+  
+  // set minimum date for check-in (today)
+  const today = new Date().toISOString().split('T')[0];
+  const checkinInput = document.getElementById('checkin');
+  const checkoutInput = document.getElementById('checkout');
+  if (checkinInput) checkinInput.min = today;
+  if (checkoutInput) checkoutInput.min = today;
+  
+  // update checkout min based on checkin selection
+  if (checkinInput && checkoutInput) {
+    checkinInput.addEventListener('change', function() {
+      const selectedDate = this.value;
+      if (selectedDate) {
+        checkoutInput.min = selectedDate;
+        if (checkoutInput.value && checkoutInput.value < selectedDate) {
+          checkoutInput.value = '';
+        }
+      }
+    });
+  }
+  
+  // handle form submission with validation & interactive popup & success message
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // get values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const guests = document.getElementById('guests').value;
+    
+    // basic validation
+    if (!firstName || !lastName || !email || !phone || !checkin || !checkout) {
+      alert("❌ Please fill in all required fields (First name, Last name, Email, Phone, Check-in and Check-out).");
+      return;
+    }
+    
+    if (!email.includes('@') || !email.includes('.')) {
+      alert("📧 Please enter a valid email address.");
+      return;
+    }
+    
+    if (phone.length < 6) {
+      alert("📞 Please enter a valid phone number (at least 6 digits).");
+      return;
+    }
+    
+    const checkinDate = new Date(checkin);
+    const checkoutDate = new Date(checkout);
+    if (checkoutDate <= checkinDate) {
+      alert("📅 Check-out date must be after check-in date.");
+      return;
+    }
+    
+    // Simulate booking after validation
+    // show success message with nice animation and hide after 5 seconds or user can see
+    successDiv.style.display = 'block';
+    // also show an interactive modern alert
+    alert(`✨ Booking confirmed (demo) ✨\n\nGrazie ${firstName} ${lastName}!\nWe received your request for ${guests} guest(s) from ${checkin} to ${checkout}.\nA confirmation email will be sent to ${email} and SMS to ${phone}.\n\nThis is a simulation — Dolce Terre welcomes you!`);
+    
+    // scroll to success message smoothly
+    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    // optionally reset form after 2 seconds? better keep data but we can let user see, but for realism we can leave filled
+    // but we could reset after a while? not mandatory. but we add a small reset button? not needed, user can modify again.
+    // but we clear success message after 7 seconds
+    setTimeout(() => {
+      if (successDiv) {
+        successDiv.style.opacity = '0';
+        setTimeout(() => {
+          successDiv.style.display = 'none';
+          successDiv.style.opacity = '';
+        }, 400);
+      }
+    }, 7000);
+    
+    // optional: we could also clear the form based on request? no, many users might want to edit. so just simulate booking.
+    // BUT we also can offer "New booking" maybe, anyway is fine.
+    // For better UX we just show success, but no auto clear.
+    
+    // Additional small effect: change button text temporarily
+    const bookBtn = document.getElementById('bookNowBtn');
+    const originalText = bookBtn.innerHTML;
+    bookBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Booking ...';
+    setTimeout(() => {
+      bookBtn.innerHTML = originalText;
+    }, 1200);
+  });
+  
+  // interactive live validation: adding real-time feedback
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('input', function(e) {
+    // just a nice touch: allow only numbers and +, spaces
+    let val = this.value;
+    // but not enforced strictly for user friendliness
+  });
+  
+  // for better date range: if checkin is today, checkout at least tomorrow
+  if (checkoutInput && checkinInput) {
+    checkinInput.addEventListener('change', () => {
+      if (checkinInput.value === today) {
+        let tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        let tomorrowStr = tomorrow.toISOString().split('T')[0];
+        if (!checkoutInput.value || checkoutInput.value < tomorrowStr) {
+          // optionally set default tomorrow
+          if (confirm("Would you like to set check-out to tomorrow as a suggestion?")) {
+            checkoutInput.value = tomorrowStr;
+          }
+        }
+      }
+    });
+  }
+  
+  // additional interaction: listen for enter key on fields
+  const allInputs = document.querySelectorAll('input, select, textarea');
+  allInputs.forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        // find next sibling or something, but not needed, just prevent accidental submit? 
+        // the form will submit via button click but we don't want enter to submit if fields empty?
+        // But default is okay. add a little friendly skip.
+      }
+    });
+  });
+  
+  // simple interactive welcome for console (just fun)
+  console.log("✨ Dolce Terre Booking Engine — Ready. Enjoy your virtual stay ✨");
+</script>
+</body>
+</html>
