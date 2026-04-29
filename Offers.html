@@ -3,51 +3,498 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Dolce Terre | Offers · Exclusive Stays</title>
+  <title>Dolce Terre | Exclusive Offers · Spa & Wellness</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #f5f2ea; font-family: 'Inter', sans-serif; color: #2c2b28; }
-    :root { --sage: #9caf88; --deep-sage: #7e8f6c; }
-    .navbar { background: rgba(255, 250, 240, 0.96); backdrop-filter: blur(14px); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(156, 175, 136, 0.4); }
-    .logo h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.9rem; background: linear-gradient(135deg, #5c6e4a, #3d4a30); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links li a { text-decoration: none; font-weight: 500; color: #3c4932; border-bottom: 2px solid transparent; }
-    .nav-links li a:hover { border-bottom-color: var(--sage); }
-    .hero { min-height: 45vh; background-image: url('https://picsum.photos/id/429/1600/900'); background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
-    .hero::before { content: ''; background: rgba(0,0,0,0.25); inset: 0; position: absolute; }
-    .hero-text { position: relative; background: rgba(250, 247, 240, 0.8); backdrop-filter: blur(6px); padding: 1.5rem 3rem; border-radius: 48px; text-align: center; }
-    .hero-text h2 { font-family: 'Playfair Display'; font-size: 2.8rem; color: #2f4022; }
-    .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-left: 6px solid var(--sage); padding-left: 1.2rem; margin-bottom: 2rem; color: #3b4a2e; }
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .card { background: #fffdf9; border-radius: 32px; padding: 1.5rem; border: 1px solid #ebe2d0; transition: 0.2s; text-align: center; }
-    .card i { font-size: 2.5rem; color: var(--deep-sage); margin-bottom: 1rem; }
-    .card h3 { font-family: 'Playfair Display'; margin-bottom: 0.7rem; color: #4e6240; }
-    .warning-note { background: #fff3e0; border-left: 6px solid #d4b87a; padding: 1rem 1.5rem; border-radius: 28px; margin: 2rem 0; font-size: 0.9rem; text-align: center; }
-    footer { background: #dfd9ca; padding: 2rem; text-align: center; margin-top: 2rem; }
-    .btn { display: inline-block; background: var(--sage); color: white; padding: 0.6rem 1.4rem; border-radius: 40px; text-decoration: none; margin-top: 0.8rem; font-weight: 500; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f2ea;
+      font-family: 'Inter', sans-serif;
+      color: #2c2b28;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --sage: #9caf88;
+      --deep-sage: #7e8f6c;
+      --clay: #d9c7a7;
+      --stone: #e4dfd3;
+      --charcoal: #2e2c2a;
+      --cream: #fef9ef;
+      --olive: #7b8a5c;
+      --warm-sand: #e8e0d0;
+      --gold: #c9a87b;
+    }
+
+    /* navigation */
+    .navbar {
+      background: rgba(255, 250, 240, 0.96);
+      backdrop-filter: blur(14px);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(156, 175, 136, 0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.9rem;
+      background: linear-gradient(135deg, #5c6e4a, #3d4a30);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3c4932;
+      padding: 0.5rem 0;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links li a:hover {
+      border-bottom-color: var(--sage);
+      color: #2c3b1f;
+    }
+
+    /* hero section */
+    .offers-hero {
+      min-height: 55vh;
+      background-image: url('https://picsum.photos/id/131/1600/800');
+      background-size: cover;
+      background-position: center 35%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid #e2dacf;
+    }
+
+    .offers-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(235, 225, 205, 0.35);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-text {
+      position: relative;
+      background: rgba(250, 247, 240, 0.75);
+      backdrop-filter: blur(6px);
+      padding: 1.8rem 3rem;
+      border-radius: 56px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #2f4022;
+    }
+
+    .hero-text p {
+      font-style: italic;
+      color: #3b4b2c;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--sage);
+      padding-left: 1.2rem;
+      color: #3b4a2e;
+    }
+
+    /* offer cards grid */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .offer-card {
+      background: #fffdf9;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 14px 26px -12px rgba(0,0,0,0.06);
+      border: 1px solid #ebe2d0;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 38px -18px rgba(86, 97, 66, 0.35);
+    }
+
+    .offer-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .offer-card:hover .offer-img {
+      transform: scale(1.02);
+    }
+
+    .offer-content {
+      padding: 1.6rem;
+    }
+
+    .offer-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #4e6240;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .offer-content h3 i {
+      color: var(--gold);
+      font-size: 1.6rem;
+    }
+
+    .offer-desc {
+      color: #54524b;
+      line-height: 1.5;
+      margin: 0.8rem 0;
+      font-size: 0.95rem;
+    }
+
+    .price-tag {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #5c6e4a;
+      margin: 0.8rem 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .price-tag span {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #8b8a7a;
+    }
+
+    .btn-offer {
+      background: transparent;
+      border: 1.5px solid var(--sage);
+      border-radius: 40px;
+      padding: 0.65rem 1.4rem;
+      font-weight: 600;
+      color: #4a5e38;
+      cursor: pointer;
+      transition: 0.25s;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-offer:hover {
+      background: var(--sage);
+      color: white;
+      border-color: var(--deep-sage);
+    }
+
+    /* special banner */
+    .exclusive-banner {
+      background: linear-gradient(135deg, #e8e0cf, #f1ebdf);
+      border-radius: 48px;
+      padding: 2rem;
+      margin: 2rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #dbcfb6;
+    }
+
+    .banner-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #3f5430;
+    }
+
+    .badge-warning {
+      background: #fff2df;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      color: #946b2e;
+      font-weight: 500;
+      border-left: 3px solid #e0b070;
+    }
+
+    /* interactive toast */
+    .toast-notify {
+      visibility: hidden;
+      min-width: 280px;
+      background-color: #2f4022;
+      color: #faf3e0;
+      text-align: center;
+      border-radius: 60px;
+      padding: 12px 20px;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      backdrop-filter: blur(4px);
+      transition: visibility 0.2s, opacity 0.2s;
+      opacity: 0;
+    }
+
+    .toast-notify.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    footer {
+      background: #dfd9ca;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero-text h2 { font-size: 2.5rem; letter-spacing: 2px; }
+      .section-title { font-size: 2rem; }
+      .container { padding: 0 1.2rem; }
+      .navbar { padding: 0.8rem 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .offers-grid { gap: 1.5rem; }
+    }
   </style>
 </head>
 <body>
+
 <nav class="navbar">
-  <div class="logo"><h1>🏺 DOLCE TERRE</h1></div>
-  <ul class="nav-links"><li><a href="home.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="offers.html">Offers</a></li><li><a href="booking.html">Booking</a></li></ul>
-</nav>
-<div class="hero"><div class="hero-text"><h2>Offerte Esclusive</h2><p>luxury beyond measure</p></div></div>
-<div class="container">
-  <div class="section-title">🏨 4-Point 9-Star Experience</div>
-  <div class="cards-grid">
-    <div class="card"><i class="fas fa-crown"></i><h3>4-Point 9-Star Hotel</h3><p>Recognized with a unique 4-point 9-star rating for hyper-personalized service, private butlers, and sustainable luxury beyond traditional 5-star.</p></div>
-    <div class="card"><i class="fas fa-water-ladder"></i><h3>Thermal Infinity Pool & Spa</h3><p>Heated seawater pool, panoramic sauna, complimentary sunrise yoga on the cliffs.</p></div>
-    <div class="card"><i class="fas fa-record-vinyl"></i><h3>Exclusive Club 'Sage & Sound'</h3><p>Underground vinyl bar, rare Italian DJ sets, signature botanical cocktails.</p></div>
-    <div class="card"><i class="fas fa-utensils"></i><h3>Gastronomic Journey</h3><p>Michelin-starred chef's menu, private wine cellar, cooking classes with Nonna Elena.</p></div>
+  <div class="logo">
+    <h1>🏺 DOLCE TERRE</h1>
   </div>
-  <div class="warning-note"><i class="fas fa-child"></i> <strong>Important notice:</strong> Guests under 18 years old must be accompanied by a parent or legal guardian in all common areas and club events. Our evening club (from 9 PM) admits only adults 21+. Family-friendly programming available before 8 PM.</div>
-  <div style="background: #fefaf2; border-radius: 32px; padding: 1rem; text-align: center;"><i class="fas fa-gift"></i> Complimentary breakfast, valet parking, and airport transfers for stays over 4 nights.</div>
-  <div style="text-align: center; margin: 2rem 0;"><a href="booking.html" class="btn">Claim your offer →</a></div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="booking.html">Booking</a></li>
+  </ul>
+</nav>
+
+<div class="offers-hero">
+  <div class="hero-text">
+    <h2>Wellness & Indulgence</h2>
+    <p>spa · infinity pool · state-of-the-art gym</p>
+  </div>
 </div>
-<footer><p>© 2025 Dolce Terre · Offers & Indulgence</p></footer>
+
+<div class="container">
+  <div class="section-title">
+    🌟 Exclusive offers for body & soul
+  </div>
+
+  <!-- Interactive offers grid with Spa, Pool, Gym plus extra luxury packages -->
+  <div class="offers-grid">
+    <!-- SPA offer -->
+    <div class="offer-card" data-offer="spa">
+      <img class="offer-img" src="https://picsum.photos/id/125/800/550" alt="Luxury Spa with natural stone and essential oils" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-spa"></i> Eternal Spa</h3>
+        <div class="offer-desc">Volcanic stone massage, sea salt exfoliation, and thermal mud wrap. Includes herbal tea lounge and silent sauna. Awaken your senses with Mediterranean rituals.</div>
+        <div class="price-tag">€189 <span>/ per person · 90 min ritual</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Eternal Spa"><i class="fas fa-calendar-week"></i> Book spa escape</button>
+      </div>
+    </div>
+
+    <!-- Infinity Pool + Cocktail offer -->
+    <div class="offer-card" data-offer="pool">
+      <img class="offer-img" src="https://picsum.photos/id/97/800/550" alt="Infinity pool overlooking mediterranean sea" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-water-ladder"></i> Aphrodite Pool Club</h3>
+        <div class="offer-desc">Sunset infinity pool with heated seawater, private cabanas, and mixology experience. Includes a welcome prosecco & fruit platter. Poolside DJ on weekends.</div>
+        <div class="price-tag">€79 <span>/ day pass (lounge + drink)</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Aphrodite Pool Club"><i class="fas fa-umbrella-beach"></i> Reserve pool side</button>
+      </div>
+    </div>
+
+    <!-- Gym & personal training -->
+    <div class="offer-card" data-offer="gym">
+      <img class="offer-img" src="https://picsum.photos/id/180/800/550" alt="Modern luxury gym with sea view" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-dumbbell"></i> Titan Fitness Club</h3>
+        <div class="offer-desc">Technogym equipment, panoramic sea views, daily yoga sessions, and personal trainer access. Cold eucalyptus towels, smoothie bar, and steam room included.</div>
+        <div class="price-tag">€49 <span>/ day pass or free for suite guests</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Titan Fitness Club"><i class="fas fa-heartbeat"></i> Activate gym pass</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional special package: Romantic + Wellness Bundle -->
+  <div class="offers-grid" style="margin-top: 0.5rem;">
+    <div class="offer-card">
+      <img class="offer-img" src="https://picsum.photos/id/29/800/550" alt="couple spa wellness experience" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-hand-holding-heart"></i> Amore & Relax</h3>
+        <div class="offer-desc">Couple's massage, private jacuzzi under the stars, champagne tasting, and access to the thermal pool. Perfect for honeymooners or anniversary.</div>
+        <div class="price-tag">€349 <span>/ couple (3h experience)</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Amore & Relax"><i class="fas fa-champagne-glasses"></i> Book couple's bliss</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://picsum.photos/id/84/800/550" alt="yoga retreat with ocean view" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-leaf"></i> Earth & Soul Retreat</h3>
+        <div class="offer-desc">Full day: morning meditation, gym session, spa circuit, organic lunch, and afternoon pilates. Includes herbal kit and wellness consultation.</div>
+        <div class="price-tag">€229 <span>/ full day retreat</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Earth & Soul Retreat"><i class="fas fa-feather"></i> Reserve retreat</button>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://picsum.photos/id/58/800/550" alt="sauna and relaxation area" loading="lazy">
+      <div class="offer-content">
+        <h3><i class="fas fa-fire"></i> Nordic Thermal Journey</h3>
+        <div class="offer-desc">Finnish sauna, ice fountain, herbal steam bath, and relaxation lounge with panoramic views. Traditional birch whisk treatment available.</div>
+        <div class="price-tag">€99 <span>/ 2h thermal circuit</span></div>
+        <button class="btn-offer book-offer-btn" data-name="Nordic Thermal Journey"><i class="fas fa-temperature-low"></i> Book thermal pass</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- legal note / parent info for underage guests -->
+  <div class="exclusive-banner">
+    <div class="banner-text">
+      <h4><i class="fas fa-info-circle"></i> Important notice</h4>
+      <p>Guests under 18 must be accompanied by a parent or legal guardian in spa, pool, and gym areas. Evening club access (after 8 PM) restricted to adults 21+.</p>
+    </div>
+    <div class="badge-warning">
+      <i class="fas fa-child"></i> Parental guidance required for minors
+    </div>
+  </div>
+
+  <!-- Additional member perks interactive -->
+  <div style="background: #fef8ef; border-radius: 36px; padding: 1.6rem; margin-top: 2rem; text-align: center; border: 1px solid #e6dbc8;">
+    <i class="fas fa-gem" style="color: #7e8f6c; font-size: 2rem;"></i>
+    <h3 style="font-family: Playfair Display; margin: 0.5rem 0;">Dolce Club Membership</h3>
+    <p>Join our loyalty program and get 15% off on all wellness offers + priority booking for poolside cabanas. Ask our concierge.</p>
+    <button id="clubNotifyBtn" class="btn-offer" style="width: auto; margin-top: 1rem; display: inline-flex; background: #9caf88; color: white; border: none;"><i class="fas fa-crown"></i> Learn more (Notify)</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Dolce Terre · Earthly Luxury & Italian Soul</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> timeless beauty · spa, pool & gym experiences crafted in harmony with nature</p>
+</footer>
+
+<!-- Toast message for interactive demo -->
+<div id="toastMsg" class="toast-notify">✨ Offer reserved! Concierge will contact you shortly ✨</div>
+
+<script>
+  // Interactive offers: each button shows a fake booking toast and also an alert simulation
+  const offerButtons = document.querySelectorAll('.book-offer-btn');
+  const toast = document.getElementById('toastMsg');
+  
+  function showToastMessage(message) {
+    toast.textContent = message || "✨ Offer reserved! Concierge will contact you shortly ✨";
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+  
+  offerButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const offerName = button.getAttribute('data-name') || "this exclusive package";
+      // interactive alert + toast
+      alert(`🌸 Dolce Terre · ${offerName}\n\nThank you for your interest! This is a demo reservation. Our wellness team will reach out within 24h to confirm your experience.\n\nNote: For guests under 18, parent/guardian presence required.`);
+      showToastMessage(`✔️ ${offerName} — request sent! We’ll contact you soon.`);
+      // optional: style feedback on button
+      const originalText = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-check"></i> Requested!';
+      setTimeout(() => {
+        button.innerHTML = originalText;
+      }, 1800);
+    });
+  });
+  
+  // special club notify button
+  const clubBtn = document.getElementById('clubNotifyBtn');
+  if (clubBtn) {
+    clubBtn.addEventListener('click', () => {
+      alert("✨ Dolce Club Membership ✨\n\nGet 15% off on all wellness experiences, priority pool access, and exclusive spa events. Please contact front desk or booking page to enroll. (demo interactive message)");
+      showToastMessage("🌟 Membership info sent to demo console. Connect with concierge!");
+    });
+  }
+  
+  // additional dynamic hover effects on cards adding interactive feel
+  const cards = document.querySelectorAll('.offer-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      // just a subtle class if needed (already have scale on image)
+    });
+  });
+  
+  // Add smooth scroll for any internal anchor (if any)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== "#" && href !== "") {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+  
+  // small console style greeting
+  console.log("🌿 Dolce Terre Offers — interactive spa, pool & gym packages ready.");
+</script>
 </body>
 </html>
