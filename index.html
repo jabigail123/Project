@@ -1,1 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dolce Terre | Earthly Luxury Hotel · Amalfi Coast</title>
+  <!-- Google Fonts: elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      background: #f5f2ea;
+      font-family: 'Inter', sans-serif;
+      color: #2c2b28;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --sage: #9caf88;
+      --deep-sage: #7e8f6c;
+      --clay: #d9c7a7;
+      --stone: #e4dfd3;
+      --charcoal: #2e2c2a;
+      --cream: #fef9ef;
+      --olive: #7b8a5c;
+      --warm-sand: #e8e0d0;
+    }
+
+    /* navigation */
+    .navbar {
+      background: rgba(255, 250, 240, 0.96);
+      backdrop-filter: blur(14px);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(156, 175, 136, 0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.9rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #5c6e4a, #3d4a30);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #4a5b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3c4932;
+      letter-spacing: 0.3px;
+      padding: 0.5rem 0;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      font-size: 1rem;
+    }
+
+    .nav-links li a:hover {
+      border-bottom-color: var(--sage);
+      color: #2c3b1f;
+    }
+
+    /* hero with AI-style beach resort (dolce terre coastal vibe) */
+    .hero {
+      min-height: 75vh;
+      background-image: url('https://picsum.photos/id/104/1600/950');
+      background-size: cover;
+      background-position: center 45%;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid #e2dacf;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(235, 225, 205, 0.3);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      background: rgba(250, 247, 240, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 2rem 3rem;
+      border-radius: 56px;
+      display: inline-block;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
+      font-weight: 600;
+      letter-spacing: 8px;
+      color: #2f4022;
+      text-shadow: 2px 2px 12px rgba(245, 240, 215, 0.9);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      font-style: italic;
+      color: #3b4b2c;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--sage);
+      padding-left: 1.2rem;
+      color: #3b4a2e;
+    }
+
+    .about-text {
+      background: #fefaf2;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      margin-bottom: 3rem;
+      line-height: 1.65;
+      font-size: 1.05rem;
+      color: #2c2b28;
+      border: 1px solid #ece3d5;
+    }
+
+    /* cards grid for amenities */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: #fffdf9;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.06);
+      border: 1px solid #ebe2d0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 36px -16px rgba(86, 97, 66, 0.2);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card-content {
+      padding: 1.5rem 1.5rem 1.8rem;
+    }
+
+    .card-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.75rem;
+      color: #4e6240;
+    }
+
+    .card-content p {
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: #3f3e3a;
+    }
+
+    /* GALLERY section — exactly as requested with the 4 images & captions */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 2rem;
+    }
+
+    .gallery-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: #f8f4ea;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+      transition: 0.2s;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.8rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #54673f;
+      text-align: center;
+      background: #fefcf7;
+    }
+
+    .food-section {
+      background: #f3efe6;
+      border-radius: 40px;
+      padding: 2rem 2rem 2.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .food-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .food-item {
+      background: white;
+      flex: 1;
+      min-width: 180px;
+      border-radius: 28px;
+      padding: 1.3rem;
+      text-align: center;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.02);
+      border: 1px solid #ddd0b6;
+    }
+
+    .food-item i {
+      font-size: 2.3rem;
+      color: var(--deep-sage);
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      background: #dfd9ca;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #4d4b44;
+      border-top: 1px solid #ccc3ae;
+      margin-top: 2rem;
+    }
+
+    .quote {
+      font-style: italic;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6b705c;
+      margin: 1rem 0 0.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: rgba(252, 248, 238, 0.98);
+        backdrop-filter: blur(16px);
+        width: 70%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 18px rgba(0,0,0,0.05);
+        border-right: 1px solid #cdc1a8;
+        z-index: 99;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hero-text h2 {
+        font-size: 3rem;
+        letter-spacing: 4px;
+      }
+      .hero-text {
+        padding: 1rem 1.8rem;
+      }
+      .container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <h1>🏺 DOLCE TERRE</h1>
+  </div>
+  <div class="menu-icon" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="offers.html">Offers</a></li>
+    <li><a href="booking.html">Booking</a></li>
+  </ul>
+</nav>
+
+<!-- HERO with DOLCE TERRE brand -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-text">
+      <h2>DOLCE TERRE</h2>
+      <p>where the earth meets eternal beauty</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- ABOUT / welcome section -->
+  <section id="about">
+    <div class="section-title">🌿 L'essenza · The Essence</div>
+    <div class="about-text">
+      <p>Dolce Terre is a sanctuary carved into the cliffs of the Amalfi Coast. With infinity pools spilling into the Tyrrhenian Sea, private coves, and suites nested in Mediterranean gardens, we offer a timeless escape. Every sunrise brings the scent of salt and rosemary, each evening an aperitivo under ancient olive trees. This is not just a hotel — it is an ode to earthly beauty and Italian soul, where luxury meets sustainable authenticity.</p>
+      <div class="quote">— “A place where every window frames poetry, and every moment tastes like dolce vita.”</div>
+    </div>
+  </section>
+
+  <!-- AI hotel scenes: pool, spa, beach resort -->
+  <section>
+    <div class="section-title">🏨 AI · Imagined Hotel Scenes</div>
+    <div class="cards-grid">
+      <div class="card">
+        <img class="card-img" src="https://picsum.photos/id/15/800/500" alt="Infinity pool view">
+        <div class="card-content">
+          <h3>Cliffside Infinity Pool</h3>
+          <p>Suspended between sky and sea, our heated seawater pool overlooks the coastline. Sun loungers, cabanas, and spritz bar.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://picsum.photos/id/96/800/500" alt="Luxury spa">
+        <div class="card-content">
+          <h3>Eternal Spa</h3>
+          <p>Volcanic stone massages, Mediterranean hammam, and seaweed rituals. Pure relaxation with sea-view therapy rooms.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://picsum.photos/id/127/800/500" alt="Private beach resort">
+        <div class="card-content">
+          <h3>Spiaggia Riservata</h3>
+          <p>Hidden beach cove reserved for guests. Crystal water, white pebbles, beachfront lounge with organic bites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- POESIA VISIVA · VISUAL POETRY GALLERY (exactly as you requested, with the four images and captions) -->
+  <section id="gallery">
+    <div class="section-title">📸 Poesia Visiva · Visual Poetry</div>
+    <div class="gallery-grid">
+      <!-- Cinque Terre -->
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cinque Terre village coastline" loading="lazy">
+        <div class="gallery-caption">🏖️ Cinque Terre · seaside pastels</div>
+      </div>
+      <!-- Florence Duomo -->
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Florence Duomo Brunelleschi dome" loading="lazy">
+        <div class="gallery-caption">⛪ Florence · Brunelleschi's dome</div>
+      </div>
+      <!-- Lake Como -->
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lake Como garden and mountains" loading="lazy">
+        <div class="gallery-caption">🌿 Lake Como · elegance & serenity</div>
+      </div>
+      <!-- Val d'Orcia cypress trees -->
+      <div class="gallery-card">
+        <img src="https://images.pexels.com/photos/1104761/pexels-photo-1104761.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Val d'Orcia Tuscany cypress trees rolling hills" loading="lazy">
+        <div class="gallery-caption">🌾 Val d'Orcia · cypress symphony</div>
+      </div>
+    </div>
+  </section>
+  <!-- END OF GALLERY SECTION (preserved exactly) -->
+  <!-- ============================================= -->
+
+  <!-- Italian flavors section (food inspiration) -->
+  <section>
+    <div class="section-title">🍋 Sapori · Traditional Flavors</div>
+    <div class="food-section">
+      <div class="food-list">
+        <div class="food-item">
+          <i class="fas fa-pizza-slice"></i>
+          <h4>Pizza Margherita</h4>
+          <p>San Marzano tomatoes, mozzarella di bufala, fresh basil — a tribute to Napoli.</p>
+        </div>
+        <div class="food-item">
+          <i class="fas fa-utensils"></i>
+          <h4>Linguine allo Scoglio</h4>
+          <p>Fresh seafood, cherry tomatoes, garlic, and Ligurian olive oil.</p>
+        </div>
+        <div class="food-item">
+          <i class="fas fa-drumstick-bite"></i>
+          <h4>Cotoletta alla Milanese</h4>
+          <p>Crispy breaded veal cutlet served with lemon and arugula salad.</p>
+        </div>
+      </div>
+      <div style="text-align: center; font-size: 0.9rem; color:#5f6b4b; margin-top: 1rem;"><i class="fas fa-grapes"></i> Pair with a glass of Falanghina or Chianti — finish with Tiramisù.</div>
+    </div>
+  </section>
+
+  <!-- Deep Italian soul quote -->
+  <div style="background: #eae3d4; border-radius: 32px; padding: 1.6rem; text-align: center; margin: 1.5rem 0 0.5rem;">
+    <i class="fas fa-mosaic" style="color:#6b7f54; margin-right: 0.6rem;"></i> "Dolce Terre is not just a destination; it's a feeling — the warmth of the earth, the scent of the sea, the embrace of Italian hospitality."
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Dolce Terre · Earthly Luxury & Italian Soul | Amalfi Coast</p>
+  <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> real-life imagery · dolce far niente · timeless Italy</p>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+</script>
+</body>
+</html>
