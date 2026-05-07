@@ -600,14 +600,11 @@
       extrasSelect.options[i].selected = false;
     }
     
-    // Reset dates to default (today+2 and today+6)
-    const today = new Date();
-    const defaultCheckin = new Date(today);
-    defaultCheckin.setDate(today.getDate() + 2);
-    const defaultCheckout = new Date(defaultCheckin);
-    defaultCheckout.setDate(defaultCheckin.getDate() + 4);
-    checkinEl.value = defaultCheckin.toISOString().split('T')[0];
-    checkoutEl.value = defaultCheckout.toISOString().split('T')[0];
+    // No default dates - start completely empty
+  // All fields start blank and ready for user input
+  checkinEl.value = '';
+  checkoutEl.value = '';
+  updatePriceSummary();
     
     // Hide success message
     const successDiv = document.getElementById('successMessage');
