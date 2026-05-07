@@ -31,7 +31,7 @@
       --warm-sand: #e8e0d0;
     }
 
-    /* navigation */
+    /* navigation - static bar, no hamburger */
     .navbar {
       background: rgba(255, 250, 240, 0.96);
       backdrop-filter: blur(14px);
@@ -73,6 +73,7 @@
       transition: 0.2s;
       border-bottom: 2px solid transparent;
       font-size: 1rem;
+      cursor: pointer;
     }
 
     .nav-links li a:hover {
@@ -132,30 +133,48 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 3rem auto;
       padding: 0 2rem;
     }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 1.8rem;
-      border-left: 6px solid var(--sage);
-      padding-left: 1.2rem;
-      color: #3b4a2e;
+    .booking-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
-    /* booking form card */
-    .booking-card {
+    .form-card {
+      flex: 2;
+      min-width: 280px;
       background: #fffdf9;
       border-radius: 48px;
       box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
       border: 1px solid #e9e0cf;
-      overflow: hidden;
-      padding: 2rem 2rem 2.5rem;
-      transition: all 0.2s;
+      padding: 2rem;
+    }
+
+    .summary-card {
+      flex: 1.2;
+      min-width: 260px;
+      background: #fefaf2;
+      border-radius: 40px;
+      border: 1px solid #e2d5bf;
+      padding: 1.8rem;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      box-shadow: 0 12px 22px rgba(0,0,0,0.04);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      border-left: 6px solid var(--sage);
+      padding-left: 1rem;
+      color: #3b4a2e;
     }
 
     .form-row {
@@ -167,7 +186,7 @@
 
     .form-group {
       flex: 1;
-      min-width: 180px;
+      min-width: 170px;
     }
 
     label {
@@ -176,7 +195,6 @@
       margin-bottom: 0.5rem;
       color: #4a5a3a;
       font-size: 0.85rem;
-      letter-spacing: 0.3px;
     }
 
     label i {
@@ -186,12 +204,12 @@
 
     input, select, textarea {
       width: 100%;
-      padding: 0.85rem 1rem;
+      padding: 0.8rem 1rem;
       border-radius: 32px;
       border: 1.5px solid #e2d7c4;
-      background: #ffffff;
+      background: white;
       font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: 0.2s;
       outline: none;
     }
@@ -201,95 +219,92 @@
       box-shadow: 0 0 0 2px rgba(156, 175, 136, 0.2);
     }
 
-    .double-width {
-      flex: 2;
+    .price-tag {
+      background: #e9e2d4;
+      border-radius: 28px;
+      padding: 0.2rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 6px;
+      color: #5a5a48;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+      border-bottom: 1px dashed #ddd0b8;
+      font-size: 0.95rem;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      font-weight: 700;
+      font-size: 1.3rem;
+      border-top: 2px solid #cbbf9a;
+      margin-top: 10px;
+      color: #2f4022;
     }
 
     .btn-book {
       background: #7e8f6c;
       border: none;
-      padding: 1rem 1.8rem;
+      padding: 1rem;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: white;
       border-radius: 60px;
       width: 100%;
       cursor: pointer;
       transition: 0.25s;
-      font-family: 'Inter', sans-serif;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
     }
 
     .btn-book:hover {
       background: #5c6e4a;
       transform: translateY(-2px);
-      box-shadow: 0 12px 20px rgba(90, 110, 70, 0.2);
     }
 
-    .info-note {
-      background: #f3efe6;
-      border-radius: 24px;
-      padding: 1rem 1.5rem;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: #5f5b54;
-      border-left: 4px solid var(--sage);
+    .btn-reset {
+      background: #cdc2ab;
+      border: none;
+      padding: 0.9rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #4a4a3a;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.25s;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
-    footer {
-      background: #dfd9ca;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #4d4b44;
-      border-top: 1px solid #ccc3ae;
-      margin-top: 2rem;
+    .btn-reset:hover {
+      background: #b8ab90;
+      color: #2c2b28;
     }
-.menu-icon {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #4a5b3a;
-}
 
-@media (max-width: 800px) {
-  .menu-icon {
-    display: block;
-  }
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
 
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    left: -100%;
-    background: rgba(252, 248, 238, 0.98);
-    backdrop-filter: blur(16px);
-    width: 70%;
-    height: calc(100vh - 70px);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 3rem;
-    gap: 2rem;
-    transition: left 0.3s ease;
-    border-right: 1px solid #cdc1a8;
-    z-index: 99;
-  }
-
-  .nav-links.active {
-    left: 0;
-  }
-}
-    @media (max-width: 750px) {
-      .hero-text h2 { font-size: 2.2rem; letter-spacing: 2px; }
-      .booking-card { padding: 1.5rem; }
-      .container { padding: 0 1.2rem; }
-      .navbar { padding: 0.8rem 1.2rem; }
-      .nav-links { gap: 1rem; }
+    .button-group .btn-book,
+    .button-group .btn-reset {
+      margin-top: 0;
+      flex: 1;
     }
 
     .success-message {
@@ -301,29 +316,40 @@
       margin-top: 1.2rem;
       font-weight: 500;
       display: none;
-      animation: fadeIn 0.4s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px);}
-      to { opacity: 1; transform: translateY(0);}
+    .info-note {
+      background: #f3efe6;
+      border-radius: 24px;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    footer {
+      background: #dfd9ca;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 750px) {
+      .hero-text h2 { font-size: 2.2rem; letter-spacing: 2px; }
+      .form-card { padding: 1.5rem; }
+      .container { padding: 0 1.2rem; }
+      .navbar { padding: 0.8rem 1.2rem; }
+      .button-group { flex-direction: column; gap: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
- <nav class="navbar">
-
-  <!-- logo -->
+<nav class="navbar">
   <div class="logo">
     <h1>🏺 DOLCE TERRE</h1>
   </div>
-
-  <!-- hamburger icon -->
-  <div class="menu-icon" id="menuToggle">
-    <i class="fas fa-bars"></i>
-  </div>
-
   <!-- nav links -->
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
@@ -332,7 +358,6 @@
     <li><a href="offers.html">Offers</a></li>
     <li><a href="booking.html">Booking</a></li>
   </ul>
-
 </nav>
 
 <div class="hero-small">
@@ -343,87 +368,130 @@
 </div>
 
 <div class="container">
-  <div class="section-title">
-    <i class="fas fa-calendar-check" style="margin-right: 10px; color: var(--sage);"></i> Reserve your stay
-  </div>
+  <div class="booking-grid">
+    <!-- FORM SECTION -->
+    <div class="form-card">
+      <div class="section-title">
+        <i class="fas fa-calendar-check" style="margin-right: 10px; color: var(--sage);"></i> Reserve your stay
+      </div>
+      <form id="bookingForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> First name *</label>
+            <input type="text" id="firstName" placeholder="e.g., Sofia" required>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Last name *</label>
+            <input type="text" id="lastName" placeholder="e.g., Ricci" required>
+          </div>
+        </div>
 
-  <div class="booking-card">
-    <form id="bookingForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label><i class="fas fa-user"></i> First name *</label>
-          <input type="text" id="firstName" placeholder="e.g., Sofia" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email address *</label>
+            <input type="email" id="email" placeholder="hello@dolceterre.com" required>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone number *</label>
+            <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
+          </div>
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-user"></i> Last name *</label>
-          <input type="text" id="lastName" placeholder="e.g., Ricci" required>
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label><i class="fas fa-envelope"></i> Email address *</label>
-          <input type="email" id="email" placeholder="hello@dolceterre.com" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-calendar-alt"></i> Check-in date *</label>
+            <input type="date" id="checkin" required>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-calendar-alt"></i> Check-out date *</label>
+            <input type="date" id="checkout" required>
+          </div>
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-phone-alt"></i> Phone number *</label>
-          <input type="tel" id="phone" placeholder="+39 123 456 7890" required>
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label><i class="fas fa-calendar-alt"></i> Check-in date *</label>
-          <input type="date" id="checkin" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-bed"></i> Room type</label>
+            <select id="roomType">
+              <option value="Cliffside Sea View Suite" data-price="1250">Cliffside Sea View Suite — €1,250/night</option>
+              <option value="Garden Terrace Room" data-price="790" selected>Garden Terrace Room — €790/night</option>
+              <option value="Infinity Pool Access Villa" data-price="1890">Infinity Pool Access Villa — €1,890/night</option>
+              <option value="Presidential Terrace with Jacuzzi" data-price="2950">Presidential Terrace with Jacuzzi — €2,950/night</option>
+              <option value="Royal Amalfi Penthouse" data-price="4800">Royal Amalfi Penthouse — €4,800/night</option>
+            </select>
+            <div class="price-tag"><i class="fas fa-gem"></i> Ultra-luxury collection</div>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-users"></i> Adults (18+) *</label>
+            <input type="number" id="adults" min="1" max="8" value="2" step="1">
+          </div>
         </div>
-        <div class="form-group">
-          <label><i class="fas fa-calendar-alt"></i> Check-out date *</label>
-          <input type="date" id="checkout" required>
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label><i class="fas fa-users"></i> Guests *</label>
-          <select id="guests" required>
-            <option value="1">1 adult</option>
-            <option value="2" selected>2 adults</option>
-            <option value="3">3 adults</option>
-            <option value="4">4 adults</option>
-            <option value="5">5 adults</option>
-            <option value="2+children">2 adults + children</option>
-          </select>
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-child"></i> Children (4–12 yrs)</label>
+            <input type="number" id="children" min="0" max="6" value="0" step="1">
+            <div class="price-tag"><i class="fas fa-info-circle"></i> +€95 per child/night</div>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-baby-carriage"></i> Infants (0–3 yrs)</label>
+            <input type="number" id="infants" min="0" max="4" value="0" step="1">
+            <div class="price-tag">complimentary cot</div>
+          </div>
         </div>
-        <div class="form-group double-width">
-          <label><i class="fas fa-bed"></i> Room type</label>
-          <select id="roomType">
-            <option>Cliffside Sea View Suite</option>
-            <option selected>Garden Terrace Room</option>
-            <option>Infinity Pool Access Villa</option>
-            <option>Presidential Terrace with Jacuzzi</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group double-width">
-          <label><i class="fas fa-comment-dots"></i> Special requests (optional)</label>
-          <textarea rows="2" id="requests" placeholder="Dietary preferences, celebrations, extra pillows..."></textarea>
+        <div class="form-row">
+          <div class="form-group double-width">
+            <label><i class="fas fa-umbrella-beach"></i> Premium experiences (select any)</label>
+            <select id="extras" multiple size="3" style="height: auto; border-radius: 28px;">
+              <option value="yacht">🛥️ Private yacht excursion (half day) – €1,250</option>
+              <option value="chef">🍽️ Michelin-star private chef dinner – €890</option>
+              <option value="spa">💆 Couple's Royal Spa Ritual – €520</option>
+              <option value="heli">🚁 Helicopter coastal tour – €1,950</option>
+              <option value="ferrari">🏎️ Ferrari Portofino rental (24h) – €1,600</option>
+            </select>
+            <div class="price-tag"><i class="fas fa-plus-circle"></i> Ctrl/Cmd + click to add multiple indulgences</div>
+          </div>
         </div>
-      </div>
 
-      <button type="submit" class="btn-book" id="bookNowBtn">
-        <i class="fas fa-check-circle"></i> Book your stay
-      </button>
-      
-      <div id="successMessage" class="success-message">
-        <i class="fas fa-spa"></i> ✨ Grazie! Your reservation request has been received. A Dolce Terre concierge will contact you within 24 hours. ✨
+        <div class="form-row">
+          <div class="form-group double-width">
+            <label><i class="fas fa-comment-dots"></i> Special requests (optional)</label>
+            <textarea rows="2" id="requests" placeholder="Dietary preferences, celebrations, extra pillows..."></textarea>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-book" id="bookNowBtn">
+            <i class="fas fa-check-circle"></i> Book your stay
+          </button>
+          <button type="button" class="btn-reset" id="resetBtn">
+            <i class="fas fa-trash-alt"></i> Cancel / Reset Booking
+          </button>
+        </div>
+        
+        <div id="successMessage" class="success-message"></div>
+        
+        <div class="info-note">
+          <i class="fas fa-lock"></i> Your information is safe with us. Premium concierge service included. Click "Cancel / Reset" to clear all fields and start over.
+        </div>
+      </form>
+    </div>
+
+    <!-- REAL-TIME PRICE SUMMARY -->
+    <div class="summary-card" id="priceSummary">
+      <h3 style="font-family: 'Playfair Display'; margin-bottom: 1rem;"><i class="fas fa-receipt"></i> Your stay summary</h3>
+      <div id="summaryDetails">
+        <div class="summary-line"><span>🏨 Room (per night)</span><span id="baseRateDisplay">€790</span></div>
+        <div class="summary-line"><span>📅 Nights</span><span id="nightsCount">—</span></div>
+        <div class="summary-line"><span>🛏️ Room total</span><span id="roomTotalSpan">€0</span></div>
+        <div class="summary-line"><span>🧒 Children supplement</span><span id="childTotal">€0</span></div>
+        <div class="summary-line"><span>✨ Experiences total</span><span id="extrasTotal">€0</span></div>
+        <div class="summary-total"><span>💰 Total (EUR)</span><span id="grandTotalSpan">€0</span></div>
       </div>
-      
-      <div class="info-note">
-        <i class="fas fa-lock"></i> Your information is safe with us. This is a demo reservation — no real charge will be applied. After clicking, you'll see a confirmation message.
+      <div id="bookingPreviewNote" style="font-size: 0.7rem; margin-top: 1rem; background: #e9e2d4; padding: 8px; border-radius: 30px; text-align: center;">
+        <i class="fas fa-sync-alt"></i> Prices update live — luxury stays, flexible payment
       </div>
-    </form>
+    </div>
   </div>
 </div>
 
@@ -433,44 +501,180 @@
 </footer>
 
 <script>
-  // DOM fully interactive booking simulation
+  // DOM elements
+  const checkinEl = document.getElementById('checkin');
+  const checkoutEl = document.getElementById('checkout');
+  const roomSelect = document.getElementById('roomType');
+  const adultsInput = document.getElementById('adults');
+  const childrenInput = document.getElementById('children');
+  const infantsInput = document.getElementById('infants');
+  const extrasSelect = document.getElementById('extras');
+  const firstNameInput = document.getElementById('firstName');
+  const lastNameInput = document.getElementById('lastName');
+  const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
+  const requestsTextarea = document.getElementById('requests');
+  
+  const baseRateSpan = document.getElementById('baseRateDisplay');
+  const nightsCountSpan = document.getElementById('nightsCount');
+  const roomTotalSpan = document.getElementById('roomTotalSpan');
+  const childTotalSpan = document.getElementById('childTotal');
+  const extrasTotalSpan = document.getElementById('extrasTotal');
+  const grandTotalSpan = document.getElementById('grandTotalSpan');
+
+  function getRoomPrice() {
+    const selected = roomSelect.options[roomSelect.selectedIndex];
+    return parseInt(selected.getAttribute('data-price')) || 790;
+  }
+
+  function calcNights(checkinDate, checkoutDate) {
+    if (!checkinDate || !checkoutDate) return 0;
+    const start = new Date(checkinDate);
+    const end = new Date(checkoutDate);
+    if (isNaN(start) || isNaN(end) || end <= start) return 0;
+    const diffTime = Math.abs(end - start);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  }
+
+  function getExtrasTotal() {
+    let total = 0;
+    const selectedOptions = Array.from(extrasSelect.selectedOptions);
+    for (let opt of selectedOptions) {
+      if (opt.value === 'yacht') total += 1250;
+      if (opt.value === 'chef') total += 890;
+      if (opt.value === 'spa') total += 520;
+      if (opt.value === 'heli') total += 1950;
+      if (opt.value === 'ferrari') total += 1600;
+    }
+    return total;
+  }
+
+  function updatePriceSummary() {
+    const checkinVal = checkinEl.value;
+    const checkoutVal = checkoutEl.value;
+    const nights = calcNights(checkinVal, checkoutVal);
+    nightsCountSpan.innerText = nights === 0 ? '—' : nights;
+    
+    if (nights === 0 || !checkinVal || !checkoutVal) {
+      baseRateSpan.innerText = `€${getRoomPrice()}`;
+      roomTotalSpan.innerText = '€0';
+      childTotalSpan.innerText = '€0';
+      extrasTotalSpan.innerText = '€0';
+      grandTotalSpan.innerText = '€0';
+      return;
+    }
+    
+    const roomPrice = getRoomPrice();
+    const children = parseInt(childrenInput.value) || 0;
+    const childCostPerNight = children * 95;
+    const baseRoomTotal = roomPrice * nights;
+    const childrenTotal = childCostPerNight * nights;
+    const extrasAmount = getExtrasTotal();
+    const totalStay = baseRoomTotal + childrenTotal + extrasAmount;
+    
+    baseRateSpan.innerText = `€${roomPrice}`;
+    roomTotalSpan.innerText = `€${baseRoomTotal.toLocaleString()}`;
+    childTotalSpan.innerText = `€${childrenTotal.toLocaleString()}`;
+    extrasTotalSpan.innerText = `€${extrasAmount.toLocaleString()}`;
+    grandTotalSpan.innerText = `€${totalStay.toLocaleString()}`;
+    document.getElementById('bookingPreviewNote').innerHTML = `<i class="fas fa-sync-alt"></i> ${nights} nights · total €${totalStay.toLocaleString()} · inclusive of all taxes`;
+  }
+
+  // RESET FUNCTION - clears all form fields and success message
+  function resetAllFields() {
+    // Clear text and input fields
+    firstNameInput.value = '';
+    lastNameInput.value = '';
+    emailInput.value = '';
+    phoneInput.value = '';
+    requestsTextarea.value = '';
+    
+    // Reset selects to defaults
+    roomSelect.selectedIndex = 1; // Garden Terrace Room (index 1)
+    adultsInput.value = '2';
+    childrenInput.value = '0';
+    infantsInput.value = '0';
+    
+    // Clear all selections in extras multi-select
+    for (let i = 0; i < extrasSelect.options.length; i++) {
+      extrasSelect.options[i].selected = false;
+    }
+    
+    // Reset dates to default (today+2 and today+6)
+    const today = new Date();
+    const defaultCheckin = new Date(today);
+    defaultCheckin.setDate(today.getDate() + 2);
+    const defaultCheckout = new Date(defaultCheckin);
+    defaultCheckout.setDate(defaultCheckin.getDate() + 4);
+    checkinEl.value = defaultCheckin.toISOString().split('T')[0];
+    checkoutEl.value = defaultCheckout.toISOString().split('T')[0];
+    
+    // Hide success message
+    const successDiv = document.getElementById('successMessage');
+    successDiv.style.display = 'none';
+    successDiv.innerHTML = '';
+    
+    // Update price summary
+    updatePriceSummary();
+    
+    // Show a small notification (optional)
+    const resetNote = document.createElement('div');
+    resetNote.style.position = 'fixed';
+    resetNote.style.bottom = '20px';
+    resetNote.style.right = '20px';
+    resetNote.style.background = '#7e8f6c';
+    resetNote.style.color = 'white';
+    resetNote.style.padding = '12px 20px';
+    resetNote.style.borderRadius = '40px';
+    resetNote.style.fontSize = '0.85rem';
+    resetNote.style.zIndex = '999';
+    resetNote.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+    resetNote.innerHTML = '<i class="fas fa-check"></i> Booking cancelled — all fields reset';
+    document.body.appendChild(resetNote);
+    setTimeout(() => resetNote.remove(), 2500);
+  }
+
+  function bindEvents() {
+    checkinEl.addEventListener('change', updatePriceSummary);
+    checkoutEl.addEventListener('change', updatePriceSummary);
+    roomSelect.addEventListener('change', updatePriceSummary);
+    adultsInput.addEventListener('input', updatePriceSummary);
+    childrenInput.addEventListener('input', updatePriceSummary);
+    extrasSelect.addEventListener('change', updatePriceSummary);
+  }
+
+  // Set min dates
+  const today = new Date().toISOString().split('T')[0];
+  if (checkinEl) checkinEl.min = today;
+  if (checkoutEl) checkoutEl.min = today;
+  
+  checkinEl.addEventListener('change', function() {
+    if (checkinEl.value) checkoutEl.min = checkinEl.value;
+    if (checkoutEl.value && checkoutEl.value <= checkinEl.value) checkoutEl.value = '';
+    updatePriceSummary();
+  });
+
+  updatePriceSummary();
+  bindEvents();
+
+  // FORM SUBMIT with validation and success message
   const form = document.getElementById('bookingForm');
   const successDiv = document.getElementById('successMessage');
-  
-  // set minimum date for check-in (today)
-  const today = new Date().toISOString().split('T')[0];
-  const checkinInput = document.getElementById('checkin');
-  const checkoutInput = document.getElementById('checkout');
-  if (checkinInput) checkinInput.min = today;
-  if (checkoutInput) checkoutInput.min = today;
-  
-  // update checkout min based on checkin selection
-  if (checkinInput && checkoutInput) {
-    checkinInput.addEventListener('change', function() {
-      const selectedDate = this.value;
-      if (selectedDate) {
-        checkoutInput.min = selectedDate;
-        if (checkoutInput.value && checkoutInput.value < selectedDate) {
-          checkoutInput.value = '';
-        }
-      }
-    });
-  }
-  
-  // handle form submission with validation & interactive popup & success message
+  const resetBtn = document.getElementById('resetBtn');
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // get values
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const checkin = document.getElementById('checkin').value;
-    const checkout = document.getElementById('checkout').value;
-    const guests = document.getElementById('guests').value;
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const checkin = checkinEl.value;
+    const checkout = checkoutEl.value;
+    const adults = parseInt(adultsInput.value);
+    const children = parseInt(childrenInput.value);
+    const roomTypeText = roomSelect.options[roomSelect.selectedIndex]?.text.split('—')[0].trim() || roomSelect.value;
     
-    // basic validation
     if (!firstName || !lastName || !email || !phone || !checkin || !checkout) {
       alert("❌ Please fill in all required fields (First name, Last name, Email, Phone, Check-in and Check-out).");
       return;
@@ -486,103 +690,89 @@
       return;
     }
     
-    const checkinDate = new Date(checkin);
-    const checkoutDate = new Date(checkout);
-    if (checkoutDate <= checkinDate) {
+    const nights = calcNights(checkin, checkout);
+    if (nights === 0) {
       alert("📅 Check-out date must be after check-in date.");
       return;
     }
     
-    // Simulate booking after validation
-    // show success message with nice animation and hide after 5 seconds or user can see
-    successDiv.style.display = 'block';
-    // also show an interactive modern alert
-    alert(`✨ Booking confirmed (demo) ✨\n\nGrazie ${firstName} ${lastName}!\nWe received your request for ${guests} guest(s) from ${checkin} to ${checkout}.\nA confirmation email will be sent to ${email} and SMS to ${phone}.\n\nThis is a simulation — Dolce Terre welcomes you!`);
+    const roomPrice = getRoomPrice();
+    const childTotalCalc = (parseInt(childrenInput.value) || 0) * 95 * nights;
+    const extrasTotalFinal = getExtrasTotal();
+    const grandTotal = (roomPrice * nights) + childTotalCalc + extrasTotalFinal;
     
-    // scroll to success message smoothly
+    const selectedExtrasList = Array.from(extrasSelect.selectedOptions).map(opt => opt.text.split('–')[0].trim()).join(', ') || 'None';
+    const specialReqs = requestsTextarea.value.trim() || '—';
+    const bookingRef = `DTR-${Math.floor(Math.random()*90000+10000)}`;
+    
+    const msgHtml = `
+      <i class="fas fa-spa"></i> ✨ GRAZIE! Your reservation is confirmed ✨<br>
+      <strong>${firstName} ${lastName}</strong>, your Dolce Terre stay has been secured.<br>
+      📅 ${checkin} → ${checkout} (${nights} nights)<br>
+      🏷️ ${roomTypeText} · ${adults} adult(s), ${children} child(ren)<br>
+      🧾 Experiences: ${selectedExtrasList}<br>
+      💶 <strong>Total amount: €${grandTotal.toLocaleString()}</strong><br>
+      🏷️ Booking reference: ${bookingRef}<br>
+      📧 Confirmation sent to ${email}<br>
+      <i class="fas fa-concierge-bell"></i> A Dolce Terre concierge will contact you within 24 hours.<br>
+      <small>⚠️ To make a new reservation, click "Cancel / Reset Booking"</small>
+    `;
+    
+    successDiv.innerHTML = msgHtml;
+    successDiv.style.display = 'block';
     successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     
-    // optionally reset form after 2 seconds? better keep data but we can let user see, but for realism we can leave filled
-    // but we could reset after a while? not mandatory. but we add a small reset button? not needed, user can modify again.
-    // but we clear success message after 7 seconds
-    setTimeout(() => {
-      if (successDiv) {
-        successDiv.style.opacity = '0';
-        setTimeout(() => {
-          successDiv.style.display = 'none';
-          successDiv.style.opacity = '';
-        }, 400);
-      }
-    }, 7000);
+    alert(`✨ Booking confirmed (demo) ✨\n\nGrazie ${firstName} ${lastName}!\nWe received your request for ${roomTypeText} (${nights} nights).\nTotal: €${grandTotal.toLocaleString()}\nExperiences: ${selectedExtrasList}\n\nReference: ${bookingRef}\nA confirmation email will be sent to ${email}.\n\nDolce Terre welcomes you!\n\nUse "Cancel / Reset Booking" to start over.`);
     
-    // optional: we could also clear the form based on request? no, many users might want to edit. so just simulate booking.
-    // BUT we also can offer "New booking" maybe, anyway is fine.
-    // For better UX we just show success, but no auto clear.
-    
-    // Additional small effect: change button text temporarily
     const bookBtn = document.getElementById('bookNowBtn');
     const originalText = bookBtn.innerHTML;
     bookBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Booking ...';
     setTimeout(() => {
       bookBtn.innerHTML = originalText;
     }, 1200);
-  });
-  
-  // interactive live validation: adding real-time feedback
-  const phoneInput = document.getElementById('phone');
-  phoneInput.addEventListener('input', function(e) {
-    // just a nice touch: allow only numbers and +, spaces
-    let val = this.value;
-    // but not enforced strictly for user friendliness
-  });
-  
-  // for better date range: if checkin is today, checkout at least tomorrow
-  if (checkoutInput && checkinInput) {
-    checkinInput.addEventListener('change', () => {
-      if (checkinInput.value === today) {
-        let tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        let tomorrowStr = tomorrow.toISOString().split('T')[0];
-        if (!checkoutInput.value || checkoutInput.value < tomorrowStr) {
-          // optionally set default tomorrow
-          if (confirm("Would you like to set check-out to tomorrow as a suggestion?")) {
-            checkoutInput.value = tomorrowStr;
-          }
-        }
+    
+    setTimeout(() => {
+      if (successDiv) {
+        successDiv.style.opacity = '0';
+        setTimeout(() => {
+          successDiv.style.display = 'none';
+          successDiv.style.opacity = '';
+          successDiv.innerHTML = '';
+        }, 400);
       }
-    });
+    }, 8000);
+  });
+
+  // Reset button handler
+  resetBtn.addEventListener('click', resetAllFields);
+
+  // Navigation link click handlers
+  const navHome = document.getElementById('navHome');
+  const navAbout = document.getElementById('navAbout');
+  const navDestinations = document.getElementById('navDestinations');
+  const navOffers = document.getElementById('navOffers');
+  const navBooking = document.getElementById('navBooking');
+  
+  if (navHome) navHome.addEventListener('click', (e) => { e.preventDefault(); alert("✨ Welcome to Dolce Terre — Home of Earthly Luxury"); });
+  if (navAbout) navAbout.addEventListener('click', (e) => { e.preventDefault(); alert("🏺 About Dolce Terre: Timeless Italian elegance, sustainable luxury since 1985"); });
+  if (navDestinations) navDestinations.addEventListener('click', (e) => { e.preventDefault(); alert("🌊 Destinations: Amalfi Coast, Tuscany Hills, Lake Como & more"); });
+  if (navOffers) navOffers.addEventListener('click', (e) => { e.preventDefault(); alert("🎁 Exclusive Offers: Honeymoon package, Long stay discounts, Early bird -20%"); });
+  if (navBooking) navBooking.addEventListener('click', (e) => { e.preventDefault(); alert("📅 You are already on the booking page — secure your dream stay"); });
+  
+  // Set default demo dates if empty
+  if (!checkinEl.value) {
+    let defaultCheckin = new Date();
+    defaultCheckin.setDate(defaultCheckin.getDate() + 2);
+    checkinEl.value = defaultCheckin.toISOString().split('T')[0];
+    let defaultCheckout = new Date(defaultCheckin);
+    defaultCheckout.setDate(defaultCheckout.getDate() + 4);
+    checkoutEl.value = defaultCheckout.toISOString().split('T')[0];
+    updatePriceSummary();
   }
   
-  // additional interaction: listen for enter key on fields
-  const allInputs = document.querySelectorAll('input, select, textarea');
-  allInputs.forEach(input => {
-    input.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-        e.preventDefault();
-        // find next sibling or something, but not needed, just prevent accidental submit? 
-        // the form will submit via button click but we don't want enter to submit if fields empty?
-        // But default is okay. add a little friendly skip.
-      }
-    });
-  });
-  
-  // simple interactive welcome for console (just fun)
-  console.log("✨ Dolce Terre Booking Engine — Ready. Enjoy your virtual stay ✨");
-<script>
-  // DOM fully interactive booking simulation
-   </script> <!-- (your existing script if you have one) -->
-
-  <!-- 👇 PUT YOUR MENU SCRIPT HERE -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
-    }
-  </script>
-
+  console.log("✨ Dolce Terre Booking Engine — Luxury pricing, live summary, reset/cancel button, static nav bar ✨");
+</script>
+</body>
+</html>
 </body>
 </html>
